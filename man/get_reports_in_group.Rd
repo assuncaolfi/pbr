@@ -2,21 +2,16 @@
 % Please edit documentation in R/reports.R
 \name{get_reports_in_group}
 \alias{get_reports_in_group}
-\title{Returns a list of reports from "My Workspace".Required scope: Report.ReadWrite.All or Report.Read.All}
+\title{Returns a list of reports from the specified workspace.Required scope: Report.ReadWrite.All or Report.Read.All}
 \usage{
 get_reports_in_group(token, groupId)
 }
 \arguments{
 \item{groupId}{The workspace id}
-
-\item{OK}{}
 }
 \value{
 A `data.frame` object.
-Returns a list of reports from the specified workspace.Required scope: Report.ReadWrite.All or Report.Read.All
-
-A `data.frame` object.
 }
 \description{
-Returns a list of reports from "My Workspace".Required scope: Report.ReadWrite.All or Report.Read.All
+Returns a list of reports from the specified workspace.Required scope: Report.ReadWrite.All or Report.Read.All
 }

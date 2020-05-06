@@ -1,5 +1,6 @@
 library(rvest)
 
+# url="https://docs.microsoft.com/en-us/rest/api/power-bi/apps/getapps"
 make_operation <- function(url, name) {
   message(url)
   page <- read_html(url)
@@ -31,15 +32,20 @@ document <- function(description, param_names, param_descriptions) {
     paste("#'", gsub("\n", "\n#' ", description, fixed = TRUE), collapse = ""),
     paste("\n#' @param", param_names, param_descriptions, collapse = ""),
     "\n#' @return A `data.frame` object.",
+    "\n#' @export",
     collapse = "\n#' "
   )
 }
 
 functionalize <- function(name, method, path, param_names) {
-  if (!is.null(param_names)) param_names <- paste0(
-    ", ",
-    paste(param_names, collapse = ", ")
-  ) 
+  if (!is.null(param_names)) {
+    param_names <- paste0(
+      ", ",
+      paste(param_names, collapse = ", ")
+    ) 
+  } else {
+    param_names <- ""
+  }
   glue::glue(
     "[name] <- function(token[param_names]) {
       path <- \"[path]\"

@@ -2,3 +2,5 @@
 test.R
 pbr.Rproj
 .Rproj.user/
+.RData
+.Rhistory

@@ -2,7 +2,7 @@
 % Please edit documentation in R/capacities.R
 \name{patch_workload}
 \alias{patch_workload}
-\title{Gets the status of "My Workspace" assignment to capacity operation.Note: Required scope: Workspace.Read.All and Workspace.ReadWrite.All}
+\title{Changes the state of a specific workload to Enabled or Disabled. When enabling a workload the maximum memory percentage that the workload can consume must be set.Required scope: Capacity.ReadWrite.All}
 \usage{
 patch_workload(token, capacityId, workloadName)
 }
@@ -10,15 +10,10 @@ patch_workload(token, capacityId, workloadName)
 \item{capacityId}{The capacity Id}
 
 \item{workloadName}{The name of the workload}
-
-\item{OK}{}
 }
 \value{
 A `data.frame` object.
-Changes the state of a specific workload to Enabled or Disabled. When enabling a workload the maximum memory percentage that the workload can consume must be set.Required scope: Capacity.ReadWrite.All
-
-A `data.frame` object.
 }
 \description{
-Gets the status of "My Workspace" assignment to capacity operation.Note: Required scope: Workspace.Read.All and Workspace.ReadWrite.All
+Changes the state of a specific workload to Enabled or Disabled. When enabling a workload the maximum memory percentage that the workload can consume must be set.Required scope: Capacity.ReadWrite.All
 }

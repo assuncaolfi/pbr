@@ -2,7 +2,7 @@
 % Please edit documentation in R/apps.R, R/dashboards.R
 \name{get_dashboard}
 \alias{get_dashboard}
-\title{Returns a list of installed apps.Required scope: App.Read.AllTo set the permissions scope, see Register an app.}
+\title{Returns the specified dashboard from the specified app.Required scope: Dashboard.ReadWrite.All or Dashboard.Read.All}
 \usage{
 get_dashboard(token, dashboardId)
 
@@ -11,20 +11,15 @@ get_dashboard(token, dashboardId)
 \arguments{
 \item{dashboardId}{The dashboard id}
 
-\item{OK}{}
-
 \item{appId}{The app id}
 }
 \value{
-A `data.frame` object.
-Returns the specified dashboard from the specified app.Required scope: Dashboard.ReadWrite.All or Dashboard.Read.All
-
 A `data.frame` object.
 
 A `data.frame` object.
 }
 \description{
-Returns a list of installed apps.Required scope: App.Read.AllTo set the permissions scope, see Register an app.
+Returns the specified dashboard from the specified app.Required scope: Dashboard.ReadWrite.All or Dashboard.Read.All
 
 Returns the specified dashboard from "My Workspace".Required scope: Dashboard.ReadWrite.All or Dashboard.Read.All
 }

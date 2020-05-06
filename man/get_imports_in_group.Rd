@@ -2,21 +2,16 @@
 % Please edit documentation in R/imports.R
 \name{get_imports_in_group}
 \alias{get_imports_in_group}
-\title{Returns a list of imports from "My Workspace".Required scope: Dataset.ReadWrite.All or Dataset.Read.All}
+\title{Returns a list of imports from the specified workspace.Required scope: Dataset.ReadWrite.All or Dataset.Read.All}
 \usage{
 get_imports_in_group(token, groupId)
 }
 \arguments{
 \item{groupId}{The workspace id}
-
-\item{OK}{}
 }
 \value{
 A `data.frame` object.
-Returns a list of imports from the specified workspace.Required scope: Dataset.ReadWrite.All or Dataset.Read.All
-
-A `data.frame` object.
 }
 \description{
-Returns a list of imports from "My Workspace".Required scope: Dataset.ReadWrite.All or Dataset.Read.All
+Returns a list of imports from the specified workspace.Required scope: Dataset.ReadWrite.All or Dataset.Read.All
 }

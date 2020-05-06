@@ -2,7 +2,7 @@
 % Please edit documentation in R/capacities.R
 \name{get_workload}
 \alias{get_workload}
-\title{Returns a list of capacities the user has access to.Required scope: Capacity.Read.All or Capacity.ReadWrite.All}
+\title{Returns the current state of a workload and if the workload is enabled also returns the maximum memory percentage that the workload can consume.Required scope: Capacity.Read.All or Capacity.ReadWrite.All}
 \usage{
 get_workload(token, capacityId, workloadName)
 }
@@ -10,15 +10,10 @@ get_workload(token, capacityId, workloadName)
 \item{capacityId}{The capacity Id}
 
 \item{workloadName}{The name of the workload}
-
-\item{OK}{}
 }
 \value{
 A `data.frame` object.
-Returns the current state of a workload and if the workload is enabled also returns the maximum memory percentage that the workload can consume.Required scope: Capacity.Read.All or Capacity.ReadWrite.All
-
-A `data.frame` object.
 }
 \description{
-Returns a list of capacities the user has access to.Required scope: Capacity.Read.All or Capacity.ReadWrite.All
+Returns the current state of a workload and if the workload is enabled also returns the maximum memory percentage that the workload can consume.Required scope: Capacity.Read.All or Capacity.ReadWrite.All
 }

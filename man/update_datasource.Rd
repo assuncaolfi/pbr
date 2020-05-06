@@ -2,7 +2,7 @@
 % Please edit documentation in R/gateways.R
 \name{update_datasource}
 \alias{update_datasource}
-\title{Returns a list of gateways for which the user is an admin.Required scope: Dataset.ReadWrite.All or Dataset.Read.All}
+\title{Updates the credentials of the specified datasource from the specified gateway.Required scope: Dataset.ReadWrite.All}
 \usage{
 update_datasource(token, datasourceId, gatewayId)
 }
@@ -10,15 +10,10 @@ update_datasource(token, datasourceId, gatewayId)
 \item{datasourceId}{The datasource id}
 
 \item{gatewayId}{The gateway id}
-
-\item{OK}{}
 }
 \value{
 A `data.frame` object.
-Updates the credentials of the specified datasource from the specified gateway.Required scope: Dataset.ReadWrite.All
-
-A `data.frame` object.
 }
 \description{
-Returns a list of gateways for which the user is an admin.Required scope: Dataset.ReadWrite.All or Dataset.Read.All
+Updates the credentials of the specified datasource from the specified gateway.Required scope: Dataset.ReadWrite.All
 }

@@ -1,6 +1,7 @@
 #' Grants the specified user permissions to the specified workspace.Notes:  
 #' @param groupId The workspace id 
-#' @return A `data.frame` object.
+#' @return A `data.frame` object. 
+#' @export
 add_group_user <- function(token, groupId) {
   path <- "https://api.powerbi.com/v1.0/myorg/groups/{groupId}/users"
   httr::POST(glue::glue(path), config(token = token))
@@ -8,7 +9,8 @@ add_group_user <- function(token, groupId) {
 
 #' Creates new workspace.Required scope: Workspace.ReadWrite.AllTo set the permissions scope, see Register an app. 
 #' @param workspaceV2 Preview feature: Create a workspace V2. The only supported value is true. 
-#' @return A `data.frame` object.
+#' @return A `data.frame` object. 
+#' @export
 create_group <- function(token, workspaceV2) {
   path <- "https://api.powerbi.com/v1.0/myorg/groups"
   httr::POST(glue::glue(path), config(token = token))
@@ -16,7 +18,8 @@ create_group <- function(token, workspaceV2) {
 
 #' Deletes the specified workspace.Required scope: Workspace.ReadWrite.AllTo set the permissions scope, see Register an app. 
 #' @param groupId The workspace id to delete 
-#' @return A `data.frame` object.
+#' @return A `data.frame` object. 
+#' @export
 delete_group <- function(token, groupId) {
   path <- "https://api.powerbi.com/v1.0/myorg/groups/{groupId}"
   httr::DELETE(glue::glue(path), config(token = token))
@@ -25,7 +28,8 @@ delete_group <- function(token, groupId) {
 #' Deletes the specified user permissions from the specified workspace.Required scope: Workspace.ReadWrite.AllTo set the permissions scope, see Register an app. 
 #' @param groupId The workspace id
 #' @param user The email address of the user or the service principal object id to delete 
-#' @return A `data.frame` object.
+#' @return A `data.frame` object. 
+#' @export
 delete_user_in_group <- function(token, groupId, user) {
   path <- "https://api.powerbi.com/v1.0/myorg/groups/{groupId}/users/{user}"
   httr::DELETE(glue::glue(path), config(token = token))
@@ -35,7 +39,8 @@ delete_user_in_group <- function(token, groupId, user) {
 #' @param filter Filters the results, based on a boolean condition
 #' @param skip Skips the first n results
 #' @param top Returns only the first n results 
-#' @return A `data.frame` object.
+#' @return A `data.frame` object. 
+#' @export
 get_groups <- function(token, filter, skip, top) {
   path <- "https://api.powerbi.com/v1.0/myorg/groups"
   httr::GET(glue::glue(path), config(token = token))
@@ -43,7 +48,8 @@ get_groups <- function(token, filter, skip, top) {
 
 #' Returns a list of users that have access to the specified workspace.Required scope: Workspace.Read.All or Workspace.ReadWrite.AllTo set the permissions scope, see Register an app. 
 #' @param groupId The workspace id 
-#' @return A `data.frame` object.
+#' @return A `data.frame` object. 
+#' @export
 get_group_users <- function(token, groupId) {
   path <- "https://api.powerbi.com/v1.0/myorg/groups/{groupId}/users"
   httr::GET(glue::glue(path), config(token = token))
@@ -51,7 +57,8 @@ get_group_users <- function(token, groupId) {
 
 #' Update the specified user permissions to the specified workspace.Notes:  
 #' @param groupId The workspace id 
-#' @return A `data.frame` object.
+#' @return A `data.frame` object. 
+#' @export
 update_group_user <- function(token, groupId) {
   path <- "https://api.powerbi.com/v1.0/myorg/groups/{groupId}/users"
   httr::PUT(glue::glue(path), config(token = token))

@@ -2,21 +2,16 @@
 % Please edit documentation in R/dataflow_storage_accounts.R
 \name{groups_assigntodataflowstorage}
 \alias{groups_assigntodataflowstorage}
-\title{Returns a list of dataflow storage accounts the user has access to.Required scope: StorageAccount.Read.All or StorageAccount.ReadWrite.All}
+\title{Assigns the specified workspace to the specified dataflow storage account.Note: To perform this operation, the user must be an admin on the specified workspace and the Power BI dataflow storage account must be enabled. To unassign the specified workspace from a Power BI dataflow storage account, an empty GUID (00000000-0000-0000-0000-000000000000) should be provided as dataflowStorageId.Required scope: StorageAccount.ReadWrite.All and Workspace.ReadWrite.All}
 \usage{
 groups_assigntodataflowstorage(token, groupId)
 }
 \arguments{
 \item{groupId}{The workspace id}
-
-\item{OK}{}
 }
 \value{
 A `data.frame` object.
-Assigns the specified workspace to the specified dataflow storage account.Note: To perform this operation, the user must be an admin on the specified workspace and the Power BI dataflow storage account must be enabled. To unassign the specified workspace from a Power BI dataflow storage account, an empty GUID (00000000-0000-0000-0000-000000000000) should be provided as dataflowStorageId.Required scope: StorageAccount.ReadWrite.All and Workspace.ReadWrite.All
-
-A `data.frame` object.
 }
 \description{
-Returns a list of dataflow storage accounts the user has access to.Required scope: StorageAccount.Read.All or StorageAccount.ReadWrite.All
+Assigns the specified workspace to the specified dataflow storage account.Note: To perform this operation, the user must be an admin on the specified workspace and the Power BI dataflow storage account must be enabled. To unassign the specified workspace from a Power BI dataflow storage account, an empty GUID (00000000-0000-0000-0000-000000000000) should be provided as dataflowStorageId.Required scope: StorageAccount.ReadWrite.All and Workspace.ReadWrite.All
 }
