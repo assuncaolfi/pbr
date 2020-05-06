@@ -5,5 +5,9 @@
 #' @export
 refresh_user_permissions <- function(token) {
   path <- "https://api.powerbi.com/v1.0/myorg/RefreshUserPermissions"
-  httr::POST(glue::glue(path), httr::config(token = token))
+  response <- httr::POST(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }

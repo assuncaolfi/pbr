@@ -5,7 +5,11 @@
 #' @export
 datasets_deleterows <- function(token, datasetId, tableName) {
   path <- "https://api.powerbi.com/v1.0/myorg/datasets/{datasetId}/tables/{tableName}/rows"
-  httr::DELETE(glue::glue(path), httr::config(token = token))
+  response <- httr::DELETE(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Deletes all rows from the specified table, within the specified dataset, from the specified workspace.Note: This API supports only Push datasets. Required scope: Dataset.ReadWrite.All 
@@ -16,7 +20,11 @@ datasets_deleterows <- function(token, datasetId, tableName) {
 #' @export
 datasets_deleterowsingroup <- function(token, datasetId, groupId, tableName) {
   path <- "https://api.powerbi.com/v1.0/myorg/groups/{groupId}/datasets/{datasetId}/tables/{tableName}/rows"
-  httr::DELETE(glue::glue(path), httr::config(token = token))
+  response <- httr::DELETE(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Returns a list of tables tables within the specified dataset from "My Workspace".Note: This API supports only Push datasets. Required scope: Dataset.ReadWrite.All or Dataset.Read.All 
@@ -25,7 +33,11 @@ datasets_deleterowsingroup <- function(token, datasetId, groupId, tableName) {
 #' @export
 datasets_gettables <- function(token, datasetId) {
   path <- "https://api.powerbi.com/v1.0/myorg/datasets/{datasetId}/tables"
-  httr::GET(glue::glue(path), httr::config(token = token))
+  response <- httr::GET(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Returns a list of tables within the specified dataset from the specified workspace.Note: This API supports only Push datasets. Required scope: Dataset.ReadWrite.All or Dataset.Read.All 
@@ -35,7 +47,11 @@ datasets_gettables <- function(token, datasetId) {
 #' @export
 datasets_gettablesingroup <- function(token, datasetId, groupId) {
   path <- "https://api.powerbi.com/v1.0/myorg/groups/{groupId}/datasets/{datasetId}/tables"
-  httr::GET(glue::glue(path), httr::config(token = token))
+  response <- httr::GET(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Creates a new dataset on "My Workspace".Note: This API supports only Push datasets.Required scope: Dataset.ReadWrite.All 
@@ -44,7 +60,11 @@ datasets_gettablesingroup <- function(token, datasetId, groupId) {
 #' @export
 datasets_postdataset <- function(token, defaultRetentionPolicy) {
   path <- "https://api.powerbi.com/v1.0/myorg/datasets"
-  httr::POST(glue::glue(path), httr::config(token = token))
+  response <- httr::POST(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Creates a new dataset in the specified workspace.Note: This API supports only Push datasets.Required scope: Dataset.ReadWrite.All 
@@ -54,7 +74,11 @@ datasets_postdataset <- function(token, defaultRetentionPolicy) {
 #' @export
 datasets_postdatasetingroup <- function(token, groupId, defaultRetentionPolicy) {
   path <- "https://api.powerbi.com/v1.0/myorg/groups/{groupId}/datasets"
-  httr::POST(glue::glue(path), httr::config(token = token))
+  response <- httr::POST(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Adds new data rows to the specified table within the specified dataset from "My Workspace".Note: This API supports only Push datasets. REST API Limitations: See Power BI REST API limitations. Required scope: Dataset.ReadWrite.All 
@@ -64,7 +88,11 @@ datasets_postdatasetingroup <- function(token, groupId, defaultRetentionPolicy) 
 #' @export
 datasets_postrows <- function(token, datasetId, tableName) {
   path <- "https://api.powerbi.com/v1.0/myorg/datasets/{datasetId}/tables/{tableName}/rows"
-  httr::POST(glue::glue(path), httr::config(token = token))
+  response <- httr::POST(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Adds new data rows to the specified table, within the specified dataset, from the specified workspace.Note: This API supports only Push datasets. REST API Limitations: See Power BI REST API limitations. Required scope: Dataset.ReadWrite.All 
@@ -75,7 +103,11 @@ datasets_postrows <- function(token, datasetId, tableName) {
 #' @export
 datasets_postrowsingroup <- function(token, datasetId, groupId, tableName) {
   path <- "https://api.powerbi.com/v1.0/myorg/groups/{groupId}/datasets/{datasetId}/tables/{tableName}/rows"
-  httr::POST(glue::glue(path), httr::config(token = token))
+  response <- httr::POST(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Updates the metadata and schema for the specified table within the specified dataset from "My Workspace".Note: This API supports only Push datasets. Required scope: Dataset.ReadWrite.All 
@@ -85,7 +117,11 @@ datasets_postrowsingroup <- function(token, datasetId, groupId, tableName) {
 #' @export
 datasets_puttable <- function(token, datasetId, tableName) {
   path <- "https://api.powerbi.com/v1.0/myorg/datasets/{datasetId}/tables/{tableName}"
-  httr::PUT(glue::glue(path), httr::config(token = token))
+  response <- httr::PUT(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Updates the metadata and schema for the specified table, within the specified dataset, from the specified workspace.Note: This API supports only Push datasets. Required scope: Dataset.ReadWrite.All 
@@ -96,5 +132,9 @@ datasets_puttable <- function(token, datasetId, tableName) {
 #' @export
 datasets_puttableingroup <- function(token, datasetId, groupId, tableName) {
   path <- "https://api.powerbi.com/v1.0/myorg/groups/{groupId}/datasets/{datasetId}/tables/{tableName}"
-  httr::PUT(glue::glue(path), httr::config(token = token))
+  response <- httr::PUT(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }

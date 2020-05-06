@@ -4,7 +4,11 @@
 #' @export
 get_dataflow_storage_accounts <- function(token) {
   path <- "https://api.powerbi.com/v1.0/myorg/dataflowStorageAccounts"
-  httr::GET(glue::glue(path), httr::config(token = token))
+  response <- httr::GET(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Assigns the specified workspace to the specified dataflow storage account.Note: To perform this operation, the user must be an admin on the specified workspace and the Power BI dataflow storage account must be enabled. To unassign the specified workspace from a Power BI dataflow storage account, an empty GUID (00000000-0000-0000-0000-000000000000) should be provided as dataflowStorageId.Required scope: StorageAccount.ReadWrite.All and Workspace.ReadWrite.All 
@@ -13,5 +17,9 @@ get_dataflow_storage_accounts <- function(token) {
 #' @export
 groups_assigntodataflowstorage <- function(token, groupId) {
   path <- "https://api.powerbi.com/v1.0/myorg/groups/{groupId}/AssignToDataflowStorage"
-  httr::POST(glue::glue(path), httr::config(token = token))
+  response <- httr::POST(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }

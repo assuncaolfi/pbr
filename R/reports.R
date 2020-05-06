@@ -4,7 +4,11 @@
 #' @export
 clone_report <- function(token, reportId) {
   path <- "https://api.powerbi.com/v1.0/myorg/reports/{reportId}/Clone"
-  httr::POST(glue::glue(path), httr::config(token = token))
+  response <- httr::POST(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Clones the specified report from the specified workspace.If after cloning the report and its dataset reside in two different upgraded workspaces or "My Workspace", a shared dataset will be created in the report's workspace. Reports with live connection will lose the live connection when cloning, and will have a direct binding to the target dataset.Required scope: Content.Create Required permissions: Report - Write permissions. Target dataset (if provided) - Build permissions 
@@ -14,7 +18,11 @@ clone_report <- function(token, reportId) {
 #' @export
 clone_report_in_group <- function(token, groupId, reportId) {
   path <- "https://api.powerbi.com/v1.0/myorg/groups/{groupId}/reports/{reportId}/Clone"
-  httr::POST(glue::glue(path), httr::config(token = token))
+  response <- httr::POST(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Deletes the specified report from "My Workspace".Required scope: Report.ReadWrite.All 
@@ -23,7 +31,11 @@ clone_report_in_group <- function(token, groupId, reportId) {
 #' @export
 delete_report <- function(token, reportId) {
   path <- "https://api.powerbi.com/v1.0/myorg/reports/{reportId}"
-  httr::DELETE(glue::glue(path), httr::config(token = token))
+  response <- httr::DELETE(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Deletes the specified report from the specified workspace.Required scope: Report.ReadWrite.All 
@@ -33,7 +45,11 @@ delete_report <- function(token, reportId) {
 #' @export
 delete_report_in_group <- function(token, groupId, reportId) {
   path <- "https://api.powerbi.com/v1.0/myorg/groups/{groupId}/reports/{reportId}"
-  httr::DELETE(glue::glue(path), httr::config(token = token))
+  response <- httr::DELETE(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Exports the specified report from "My Workspace" to a .pbix file.Required scope: Report.ReadWrite.All or Report.Read.All  
@@ -42,7 +58,11 @@ delete_report_in_group <- function(token, groupId, reportId) {
 #' @export
 export_report <- function(token, reportId) {
   path <- "https://api.powerbi.com/v1.0/myorg/reports/{reportId}/Export"
-  httr::GET(glue::glue(path), httr::config(token = token))
+  response <- httr::GET(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Exports the specified report from the specified workspace to a .pbix file.Required scope: Report.ReadWrite.All or Report.Read.All  
@@ -52,7 +72,11 @@ export_report <- function(token, reportId) {
 #' @export
 export_report_in_group <- function(token, groupId, reportId) {
   path <- "https://api.powerbi.com/v1.0/myorg/groups/{groupId}/reports/{reportId}/Export"
-  httr::GET(glue::glue(path), httr::config(token = token))
+  response <- httr::GET(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Exports the specified report from "My Workspace" to the requested format.Required scope: (all of the below)  
@@ -61,7 +85,11 @@ export_report_in_group <- function(token, groupId, reportId) {
 #' @export
 export_to_file <- function(token, reportId) {
   path <- "https://api.powerbi.com/v1.0/myorg/reports/{reportId}/ExportTo"
-  httr::POST(glue::glue(path), httr::config(token = token))
+  response <- httr::POST(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Exports the specified report from the specified workspace to the requested format.Required scope: (all of the below)  
@@ -71,7 +99,11 @@ export_to_file <- function(token, reportId) {
 #' @export
 export_to_file_in_group <- function(token, groupId, reportId) {
   path <- "https://api.powerbi.com/v1.0/myorg/groups/{groupId}/reports/{reportId}/ExportTo"
-  httr::POST(glue::glue(path), httr::config(token = token))
+  response <- httr::POST(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Returns a list of datasources for the specified RDL report from "My Workspace".Required scope: Report.ReadWrite.All or Report.Read.All 
@@ -80,7 +112,11 @@ export_to_file_in_group <- function(token, groupId, reportId) {
 #' @export
 get_datasources <- function(token, reportId) {
   path <- "https://api.powerbi.com/v1.0/myorg/reports/{reportId}/datasources"
-  httr::GET(glue::glue(path), httr::config(token = token))
+  response <- httr::GET(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Returns a list of datasources for the specified RDL report from the specified workspace.Required scope: Report.ReadWrite.All or Reportt.Read.All 
@@ -90,7 +126,11 @@ get_datasources <- function(token, reportId) {
 #' @export
 get_datasources_in_group <- function(token, groupId, reportId) {
   path <- "https://api.powerbi.com/v1.0/myorg/groups/{groupId}/reports/{reportId}/datasources"
-  httr::GET(glue::glue(path), httr::config(token = token))
+  response <- httr::GET(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Returns the status of the Export to file job from "My Workspace".Required scope: Report.ReadWrite.All or Report.Read.All 
@@ -100,7 +140,11 @@ get_datasources_in_group <- function(token, groupId, reportId) {
 #' @export
 get_export_to_file_status <- function(token, exportId, reportId) {
   path <- "https://api.powerbi.com/v1.0/myorg/reports/{reportId}/exports/{exportId}"
-  httr::GET(glue::glue(path), httr::config(token = token))
+  response <- httr::GET(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Returns the status of the Export to file job from the specified workspace.Required scope: Report.ReadWrite.All or Report.Read.All 
@@ -111,7 +155,11 @@ get_export_to_file_status <- function(token, exportId, reportId) {
 #' @export
 get_export_to_file_status_in_group <- function(token, exportId, groupId, reportId) {
   path <- "https://api.powerbi.com/v1.0/myorg/groups/{groupId}/reports/{reportId}/exports/{exportId}"
-  httr::GET(glue::glue(path), httr::config(token = token))
+  response <- httr::GET(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Returns the file of the Export to file job of the specified report from "My Workspace".Required scope: Report.ReadWrite.All or Report.Read.All 
@@ -121,7 +169,11 @@ get_export_to_file_status_in_group <- function(token, exportId, groupId, reportI
 #' @export
 get_file_of_export_to_file <- function(token, exportId, reportId) {
   path <- "https://api.powerbi.com/v1.0/myorg/reports/{reportId}/exports/{exportId}/file"
-  httr::GET(glue::glue(path), httr::config(token = token))
+  response <- httr::GET(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Returns the file of the Export to file job of the specified report from the specified group.Required scope: Report.ReadWrite.All or Report.Read.All 
@@ -132,7 +184,11 @@ get_file_of_export_to_file <- function(token, exportId, reportId) {
 #' @export
 get_file_of_export_to_file_in_group <- function(token, exportId, groupId, reportId) {
   path <- "https://api.powerbi.com/v1.0/myorg/groups/{groupId}/reports/{reportId}/exports/{exportId}/file"
-  httr::GET(glue::glue(path), httr::config(token = token))
+  response <- httr::GET(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Returns the specified page within the specified report from "My Workspace".Required scope: Report.ReadWrite.All or Report.Read.All 
@@ -142,7 +198,11 @@ get_file_of_export_to_file_in_group <- function(token, exportId, groupId, report
 #' @export
 get_page <- function(token, pageName, reportId) {
   path <- "https://api.powerbi.com/v1.0/myorg/reports/{reportId}/pages/{pageName}"
-  httr::GET(glue::glue(path), httr::config(token = token))
+  response <- httr::GET(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Returns the specified page within the specified report from the specified workspace.Required scope: Report.ReadWrite.All or Report.Read.All 
@@ -153,7 +213,11 @@ get_page <- function(token, pageName, reportId) {
 #' @export
 get_page_in_group <- function(token, groupId, pageName, reportId) {
   path <- "https://api.powerbi.com/v1.0/myorg/groups/{groupId}/reports/{reportId}/pages/{pageName}"
-  httr::GET(glue::glue(path), httr::config(token = token))
+  response <- httr::GET(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Returns a list of pages within the specified report from "My Workspace".Required scope: Report.ReadWrite.All or Report.Read.All 
@@ -162,7 +226,11 @@ get_page_in_group <- function(token, groupId, pageName, reportId) {
 #' @export
 get_pages <- function(token, reportId) {
   path <- "https://api.powerbi.com/v1.0/myorg/reports/{reportId}/pages"
-  httr::GET(glue::glue(path), httr::config(token = token))
+  response <- httr::GET(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Returns a list of pages within the specified report from the specified workspace.Required scope: Report.ReadWrite.All or Report.Read.All 
@@ -172,7 +240,11 @@ get_pages <- function(token, reportId) {
 #' @export
 get_pages_in_group <- function(token, groupId, reportId) {
   path <- "https://api.powerbi.com/v1.0/myorg/groups/{groupId}/reports/{reportId}/pages"
-  httr::GET(glue::glue(path), httr::config(token = token))
+  response <- httr::GET(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Returns the specified report from "My Workspace".Required scope: Report.ReadWrite.All or Report.Read.All 
@@ -181,7 +253,11 @@ get_pages_in_group <- function(token, groupId, reportId) {
 #' @export
 get_report <- function(token, reportId) {
   path <- "https://api.powerbi.com/v1.0/myorg/reports/{reportId}"
-  httr::GET(glue::glue(path), httr::config(token = token))
+  response <- httr::GET(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Returns the specified report from the specified workspace.Required scope: Report.ReadWrite.All or Report.Read.All 
@@ -191,7 +267,11 @@ get_report <- function(token, reportId) {
 #' @export
 get_report_in_group <- function(token, groupId, reportId) {
   path <- "https://api.powerbi.com/v1.0/myorg/groups/{groupId}/reports/{reportId}"
-  httr::GET(glue::glue(path), httr::config(token = token))
+  response <- httr::GET(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Returns a list of reports from "My Workspace".Required scope: Report.ReadWrite.All or Report.Read.All 
@@ -200,7 +280,11 @@ get_report_in_group <- function(token, groupId, reportId) {
 #' @export
 get_reports <- function(token) {
   path <- "https://api.powerbi.com/v1.0/myorg/reports"
-  httr::GET(glue::glue(path), httr::config(token = token))
+  response <- httr::GET(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Returns a list of reports from the specified workspace.Required scope: Report.ReadWrite.All or Report.Read.All 
@@ -209,7 +293,11 @@ get_reports <- function(token) {
 #' @export
 get_reports_in_group <- function(token, groupId) {
   path <- "https://api.powerbi.com/v1.0/myorg/groups/{groupId}/reports"
-  httr::GET(glue::glue(path), httr::config(token = token))
+  response <- httr::GET(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Rebinds the specified report from "My Workspace" to the requested dataset.If the dataset resides in a different upgraded workspace, a shared dataset will be created in "My Workspace".Reports with live connection will lose the live connection when rebinding, and will have a direct binding to the target dataset.Required scope: Report.ReadWrite.All Required permissions: Report - Write permissions. Target dataset - Build permissions. 
@@ -218,7 +306,11 @@ get_reports_in_group <- function(token, groupId) {
 #' @export
 rebind_report <- function(token, reportId) {
   path <- "https://api.powerbi.com/v1.0/myorg/reports/{reportId}/Rebind"
-  httr::POST(glue::glue(path), httr::config(token = token))
+  response <- httr::POST(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Rebinds the specified report from the specified workspace to the requested dataset.If the dataset resides in a different upgraded workspace or in "My Workspace", a shared dataset will be created in the report's workspace.Reports with live connection will lose the live connection when rebinding, and will have a direct binding to the target dataset.Required scope: Report.ReadWrite.All Required permissions: Report - Write permissions. Target dataset - Build permissions 
@@ -228,7 +320,11 @@ rebind_report <- function(token, reportId) {
 #' @export
 rebind_report_in_group <- function(token, groupId, reportId) {
   path <- "https://api.powerbi.com/v1.0/myorg/groups/{groupId}/reports/{reportId}/Rebind"
-  httr::POST(glue::glue(path), httr::config(token = token))
+  response <- httr::POST(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Updates the specified report from "My Workspace" to have the same content as the report in the request body.Required scope: Report.ReadWrite.All 
@@ -237,7 +333,11 @@ rebind_report_in_group <- function(token, groupId, reportId) {
 #' @export
 update_report_content <- function(token, reportId) {
   path <- "https://api.powerbi.com/v1.0/myorg/reports/{reportId}/UpdateReportContent"
-  httr::POST(glue::glue(path), httr::config(token = token))
+  response <- httr::POST(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Updates the specified report from the specified workspace to have the same content as the specified report in the request body.Required scope: Report.ReadWrite.All 
@@ -247,5 +347,9 @@ update_report_content <- function(token, reportId) {
 #' @export
 update_report_content_in_group <- function(token, groupId, reportId) {
   path <- "https://api.powerbi.com/v1.0/myorg/groups/{groupId}/reports/{reportId}/UpdateReportContent"
-  httr::POST(glue::glue(path), httr::config(token = token))
+  response <- httr::POST(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }

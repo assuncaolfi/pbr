@@ -5,7 +5,11 @@
 #' @export
 dashboards_generatetokeningroup <- function(token, dashboardId, groupId) {
   path <- "https://api.powerbi.com/v1.0/myorg/groups/{groupId}/dashboards/{dashboardId}/GenerateToken"
-  httr::POST(glue::glue(path), httr::config(token = token))
+  response <- httr::POST(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Generates an embed token to Embed Q&A based on the specified dataset from the specified workspace.This API is relevant only to 'App owns data' embed scenario.Required scope: Dataset.ReadWrite.All or Dataset.Read.AllWhen using service principal for authentication, refer to Service Principal with Power BI document along with considerations and limitations section. 
@@ -15,7 +19,11 @@ dashboards_generatetokeningroup <- function(token, dashboardId, groupId) {
 #' @export
 datasets_generatetokeningroup <- function(token, datasetId, groupId) {
   path <- "https://api.powerbi.com/v1.0/myorg/groups/{groupId}/datasets/{datasetId}/GenerateToken"
-  httr::POST(glue::glue(path), httr::config(token = token))
+  response <- httr::POST(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Generates an embed token for multiple reports, datasets and target workspaces. Reports and datasets do not have to be related. The binding of a report to a dataset can be done during embedding. Target workspaces are workspaces where creation of reports is allowed.This API is relevant only to 'App owns data' embed scenario.Required scope:  
@@ -27,7 +35,11 @@ datasets_generatetokeningroup <- function(token, datasetId, groupId) {
 #' @export
 generate_token <- function(token, datasets, identities, reports, targetWorkspaces) {
   path <- "https://api.powerbi.com/v1.0/myorg/GenerateToken"
-  httr::POST(glue::glue(path), httr::config(token = token))
+  response <- httr::POST(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Generates an embed token to allow report creation on the specified workspace based on the specified dataset.This API is relevant only to 'App owns data' embed scenario.Required scope: (all of the below)  
@@ -36,7 +48,11 @@ generate_token <- function(token, datasets, identities, reports, targetWorkspace
 #' @export
 reports_generatetokenforcreateingroup <- function(token, groupId) {
   path <- "https://api.powerbi.com/v1.0/myorg/groups/{groupId}/reports/GenerateToken"
-  httr::POST(glue::glue(path), httr::config(token = token))
+  response <- httr::POST(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Generates an embed token to view or edit the specified report from the specified workspace.This API is relevant only to 'App owns data' embed scenario.Required scope: (all of the below)  
@@ -46,7 +62,11 @@ reports_generatetokenforcreateingroup <- function(token, groupId) {
 #' @export
 reports_generatetokeningroup <- function(token, groupId, reportId) {
   path <- "https://api.powerbi.com/v1.0/myorg/groups/{groupId}/reports/{reportId}/GenerateToken"
-  httr::POST(glue::glue(path), httr::config(token = token))
+  response <- httr::POST(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Generates an embed token to view the specified tile from the specified workspace.This API is relevant only to 'App owns data' embed scenario.Required scope: (all of the below)  
@@ -57,5 +77,9 @@ reports_generatetokeningroup <- function(token, groupId, reportId) {
 #' @export
 tiles_generatetokeningroup <- function(token, dashboardId, groupId, tileId) {
   path <- "https://api.powerbi.com/v1.0/myorg/groups/{groupId}/dashboards/{dashboardId}/tiles/{tileId}/GenerateToken"
-  httr::POST(glue::glue(path), httr::config(token = token))
+  response <- httr::POST(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }

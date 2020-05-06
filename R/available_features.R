@@ -4,7 +4,11 @@
 #' @export
 get_available_feature_by_name <- function(token, featureName) {
   path <- "https://api.powerbi.com/v1.0/myorg/availableFeatures(featureName='{featureName}')"
-  httr::GET(glue::glue(path), httr::config(token = token))
+  response <- httr::GET(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Returns a list of available features for the userRequired scope: None 
@@ -13,5 +17,9 @@ get_available_feature_by_name <- function(token, featureName) {
 #' @export
 get_available_features <- function(token) {
   path <- "https://api.powerbi.com/v1.0/myorg/availableFeatures"
-  httr::GET(glue::glue(path), httr::config(token = token))
+  response <- httr::GET(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }

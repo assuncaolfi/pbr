@@ -4,7 +4,11 @@
 #' @export
 add_group_user <- function(token, groupId) {
   path <- "https://api.powerbi.com/v1.0/myorg/groups/{groupId}/users"
-  httr::POST(glue::glue(path), httr::config(token = token))
+  response <- httr::POST(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Creates new workspace.Required scope: Workspace.ReadWrite.AllTo set the permissions scope, see Register an app. 
@@ -13,7 +17,11 @@ add_group_user <- function(token, groupId) {
 #' @export
 create_group <- function(token, workspaceV2) {
   path <- "https://api.powerbi.com/v1.0/myorg/groups"
-  httr::POST(glue::glue(path), httr::config(token = token))
+  response <- httr::POST(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Deletes the specified workspace.Required scope: Workspace.ReadWrite.AllTo set the permissions scope, see Register an app. 
@@ -22,7 +30,11 @@ create_group <- function(token, workspaceV2) {
 #' @export
 delete_group <- function(token, groupId) {
   path <- "https://api.powerbi.com/v1.0/myorg/groups/{groupId}"
-  httr::DELETE(glue::glue(path), httr::config(token = token))
+  response <- httr::DELETE(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Deletes the specified user permissions from the specified workspace.Required scope: Workspace.ReadWrite.AllTo set the permissions scope, see Register an app. 
@@ -32,7 +44,11 @@ delete_group <- function(token, groupId) {
 #' @export
 delete_user_in_group <- function(token, groupId, user) {
   path <- "https://api.powerbi.com/v1.0/myorg/groups/{groupId}/users/{user}"
-  httr::DELETE(glue::glue(path), httr::config(token = token))
+  response <- httr::DELETE(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Returns a list of workspaces the user has access to.Note: Users that have been recently added to a group may not have their new group immediately available, see Refresh user permissions.Required scope: Workspace.Read.All or Workspace.ReadWrite.AllTo set the permissions scope, see Register an app. 
@@ -43,7 +59,11 @@ delete_user_in_group <- function(token, groupId, user) {
 #' @export
 get_groups <- function(token) {
   path <- "https://api.powerbi.com/v1.0/myorg/groups"
-  httr::GET(glue::glue(path), httr::config(token = token))
+  response <- httr::GET(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Returns a list of users that have access to the specified workspace.Required scope: Workspace.Read.All or Workspace.ReadWrite.AllTo set the permissions scope, see Register an app. 
@@ -52,7 +72,11 @@ get_groups <- function(token) {
 #' @export
 get_group_users <- function(token, groupId) {
   path <- "https://api.powerbi.com/v1.0/myorg/groups/{groupId}/users"
-  httr::GET(glue::glue(path), httr::config(token = token))
+  response <- httr::GET(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Update the specified user permissions to the specified workspace.Notes:  
@@ -61,5 +85,9 @@ get_group_users <- function(token, groupId) {
 #' @export
 update_group_user <- function(token, groupId) {
   path <- "https://api.powerbi.com/v1.0/myorg/groups/{groupId}/users"
-  httr::PUT(glue::glue(path), httr::config(token = token))
+  response <- httr::PUT(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }

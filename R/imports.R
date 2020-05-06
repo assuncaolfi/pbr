@@ -5,7 +5,11 @@
 #' @export
 create_temporary_upload_location <- function(token) {
   path <- "https://api.powerbi.com/v1.0/myorg/imports/createTemporaryUploadLocation"
-  httr::POST(glue::glue(path), httr::config(token = token))
+  response <- httr::POST(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Creates a temporary blob storage to be used to import large .pbix files larger than 1 GB and up to 10 GB.
@@ -15,7 +19,11 @@ create_temporary_upload_location <- function(token) {
 #' @export
 create_temporary_upload_location_in_group <- function(token, groupId) {
   path <- "https://api.powerbi.com/v1.0/myorg/groups/{groupId}/imports/createTemporaryUploadLocation"
-  httr::POST(glue::glue(path), httr::config(token = token))
+  response <- httr::POST(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Returns the specified import from "My Workspace".Required scope: Dataset.ReadWrite.All or Dataset.Read.All 
@@ -24,7 +32,11 @@ create_temporary_upload_location_in_group <- function(token, groupId) {
 #' @export
 get_import <- function(token, importId) {
   path <- "https://api.powerbi.com/v1.0/myorg/imports/{importId}"
-  httr::GET(glue::glue(path), httr::config(token = token))
+  response <- httr::GET(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Returns the specified import from the specified workspace.Required scope: Dataset.ReadWrite.All or Dataset.Read.All 
@@ -34,7 +46,11 @@ get_import <- function(token, importId) {
 #' @export
 get_import_in_group <- function(token, groupId, importId) {
   path <- "https://api.powerbi.com/v1.0/myorg/groups/{groupId}/imports/{importId}"
-  httr::GET(glue::glue(path), httr::config(token = token))
+  response <- httr::GET(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Returns a list of imports from "My Workspace".Required scope: Dataset.ReadWrite.All or Dataset.Read.All 
@@ -43,7 +59,11 @@ get_import_in_group <- function(token, groupId, importId) {
 #' @export
 get_imports <- function(token) {
   path <- "https://api.powerbi.com/v1.0/myorg/imports"
-  httr::GET(glue::glue(path), httr::config(token = token))
+  response <- httr::GET(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Returns a list of imports from the specified workspace.Required scope: Dataset.ReadWrite.All or Dataset.Read.All 
@@ -52,7 +72,11 @@ get_imports <- function(token) {
 #' @export
 get_imports_in_group <- function(token, groupId) {
   path <- "https://api.powerbi.com/v1.0/myorg/groups/{groupId}/imports"
-  httr::GET(glue::glue(path), httr::config(token = token))
+  response <- httr::GET(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Creates new content on "My Workspace" from .pbix, Excel, Rdl or file path in OneDrive for Business.Required scope: Dataset.ReadWrite.All  
@@ -63,7 +87,11 @@ get_imports_in_group <- function(token, groupId) {
 #' @export
 post_import <- function(token, nameConflict, skipReport, datasetDisplayName) {
   path <- "https://api.powerbi.com/v1.0/myorg/imports?datasetDisplayName={datasetDisplayName}"
-  httr::POST(glue::glue(path), httr::config(token = token))
+  response <- httr::POST(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Creates new content on the specified workspace from .pbix, .json, Excel, Rdl, or file path in OneDrive for Business.Required scope: Dataset.ReadWrite.All  
@@ -75,5 +103,9 @@ post_import <- function(token, nameConflict, skipReport, datasetDisplayName) {
 #' @export
 post_import_in_group <- function(token, groupId, nameConflict, skipReport, datasetDisplayName) {
   path <- "https://api.powerbi.com/v1.0/myorg/groups/{groupId}/imports?datasetDisplayName={datasetDisplayName}"
-  httr::POST(glue::glue(path), httr::config(token = token))
+  response <- httr::POST(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }

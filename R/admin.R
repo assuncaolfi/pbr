@@ -7,7 +7,11 @@
 #' @export
 add_power_bi_encryption_key <- function(token, activate, isDefault, keyVaultKeyIdentifier, name) {
   path <- "https://api.powerbi.com/v1.0/myorg/admin/tenantKeys"
-  httr::POST(glue::glue(path), httr::config(token = token))
+  response <- httr::POST(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Assigns the provided workspaces to the specified capacity.Note: The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. Required scope: Tenant.Read.All or Tenant.ReadWrite.AllTo set the permissions scope, see Register an app. 
@@ -16,7 +20,11 @@ add_power_bi_encryption_key <- function(token, activate, isDefault, keyVaultKeyI
 #' @export
 capacities_assignworkspacestocapacity <- function(token, capacityMigrationAssignments) {
   path <- "https://api.powerbi.com/v1.0/myorg/admin/capacities/AssignWorkspaces"
-  httr::POST(glue::glue(path), httr::config(token = token))
+  response <- httr::POST(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Unassigns the provided workspaces from capacity.Note: The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. Required scope: Tenant.Read.All or Tenant.ReadWrite.AllTo set the permissions scope, see Register an app. 
@@ -25,7 +33,11 @@ capacities_assignworkspacestocapacity <- function(token, capacityMigrationAssign
 #' @export
 capacities_unassignworkspacesfromcapacity <- function(token, workspacesToUnassign) {
   path <- "https://api.powerbi.com/v1.0/myorg/admin/capacities/UnassignWorkspaces"
-  httr::POST(glue::glue(path), httr::config(token = token))
+  response <- httr::POST(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Returns a list of dashboards for the organization.Note: The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. This API allows 200 requests per hour at maximum. Required scope: Tenant.Read.All or Tenant.ReadWrite.AllTo set the permissions scope, see Register an app. 
@@ -37,7 +49,11 @@ capacities_unassignworkspacesfromcapacity <- function(token, workspacesToUnassig
 #' @export
 dashboards_getdashboardsasadmin <- function(token) {
   path <- "https://api.powerbi.com/v1.0/myorg/admin/dashboards"
-  httr::GET(glue::glue(path), httr::config(token = token))
+  response <- httr::GET(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Returns a list of dashboards from the specified workspace.Note: The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. This API allows 200 requests per hour at maximum. Required scope: Tenant.Read.All or Tenant.ReadWrite.AllTo set the permissions scope, see Register an app. 
@@ -49,7 +65,11 @@ dashboards_getdashboardsasadmin <- function(token) {
 #' @export
 dashboards_getdashboardsingroupasadmin <- function(token, groupId) {
   path <- "https://api.powerbi.com/v1.0/myorg/admin/groups/{groupId}/dashboards"
-  httr::GET(glue::glue(path), httr::config(token = token))
+  response <- httr::GET(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Returns a list of tiles within the specified dashboard.Note: The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. This API allows 200 requests per hour at maximum. Required scope: Tenant.Read.All or Tenant.ReadWrite.AllTo set the permissions scope, see Register an app. 
@@ -58,7 +78,11 @@ dashboards_getdashboardsingroupasadmin <- function(token, groupId) {
 #' @export
 dashboards_gettilesasadmin <- function(token, dashboardId) {
   path <- "https://api.powerbi.com/v1.0/myorg/admin/dashboards/{dashboardId}/tiles"
-  httr::GET(glue::glue(path), httr::config(token = token))
+  response <- httr::GET(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Exports the specified dataflow definition to a .json file.Note: The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. Required scope: Tenant.Read.AllApplication only and delegated permissions are supported.To set the permissions scope, see Register an app. 
@@ -67,7 +91,11 @@ dashboards_gettilesasadmin <- function(token, dashboardId) {
 #' @export
 dataflows_exportdataflowasadmin <- function(token, dataflowId) {
   path <- "https://api.powerbi.com/v1.0/myorg/admin/dataflows/{dataflowId}/export"
-  httr::GET(glue::glue(path), httr::config(token = token))
+  response <- httr::GET(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Returns a list of datasources for the specified dataflow.Note: The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. Required scope: Tenant.Read.AllApplication only and delegated permissions are supported.To set the permissions scope, see Register an app. 
@@ -76,7 +104,11 @@ dataflows_exportdataflowasadmin <- function(token, dataflowId) {
 #' @export
 dataflows_getdataflowdatasourcesasadmin <- function(token, dataflowId) {
   path <- "https://api.powerbi.com/v1.0/myorg/admin/dataflows/{dataflowId}/datasources"
-  httr::GET(glue::glue(path), httr::config(token = token))
+  response <- httr::GET(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Returns a list of dataflows for the organization.Note: The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. Required scope: Tenant.Read.All or Tenant.ReadWrite.AllTo set the permissions scope, see Register an app. 
@@ -87,7 +119,11 @@ dataflows_getdataflowdatasourcesasadmin <- function(token, dataflowId) {
 #' @export
 dataflows_getdataflowsasadmin <- function(token) {
   path <- "https://api.powerbi.com/v1.0/myorg/admin/dataflows"
-  httr::GET(glue::glue(path), httr::config(token = token))
+  response <- httr::GET(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Returns a list of dataflows from the specified workspace.Note: The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. Required scope: Tenant.Read.All or Tenant.ReadWrite.AllTo set the permissions scope, see Register an app. 
@@ -99,7 +135,11 @@ dataflows_getdataflowsasadmin <- function(token) {
 #' @export
 dataflows_getdataflowsingroupasadmin <- function(token, groupId) {
   path <- "https://api.powerbi.com/v1.0/myorg/admin/groups/{groupId}/dataflows"
-  httr::GET(glue::glue(path), httr::config(token = token))
+  response <- httr::GET(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Returns a list of upstream dataflows for the specified dataflow.Note: The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. Required scope: Tenant.Read.All or Tenant.ReadWrite.AllTo set the permissions scope, see Register an app. 
@@ -109,7 +149,11 @@ dataflows_getdataflowsingroupasadmin <- function(token, groupId) {
 #' @export
 dataflows_getupstreamdataflowsingroupasadmin <- function(token, dataflowId, groupId) {
   path <- "https://api.powerbi.com/v1.0/myorg/admin/groups/{groupId}/dataflows/{dataflowId}/upstreamDataflows"
-  httr::GET(glue::glue(path), httr::config(token = token))
+  response <- httr::GET(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Returns a list of datasets for the organization.Note: The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. This API processes each request for 2 seconds, in the mean time other requests will be queued. Required scope: Tenant.Read.All or Tenant.ReadWrite.AllTo set the permissions scope, see Register an app. 
@@ -120,7 +164,11 @@ dataflows_getupstreamdataflowsingroupasadmin <- function(token, dataflowId, grou
 #' @export
 datasets_getdatasetsasadmin <- function(token) {
   path <- "https://api.powerbi.com/v1.0/myorg/admin/datasets"
-  httr::GET(glue::glue(path), httr::config(token = token))
+  response <- httr::GET(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Returns a list of datasets from the specified workspace.Note: The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. This API allows 200 requests per hour at maximum. Required scope: Tenant.Read.All or Tenant.ReadWrite.AllTo set the permissions scope, see Register an app. 
@@ -133,7 +181,11 @@ datasets_getdatasetsasadmin <- function(token) {
 #' @export
 datasets_getdatasetsingroupasadmin <- function(token, groupId) {
   path <- "https://api.powerbi.com/v1.0/myorg/admin/groups/{groupId}/datasets"
-  httr::GET(glue::glue(path), httr::config(token = token))
+  response <- httr::GET(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Returns a list of upstream dataflows for datasets from the specified workspace.Note: The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. Required scope: Tenant.Read.All or Tenant.ReadWrite.AllTo set the permissions scope, see Register an app. 
@@ -142,7 +194,11 @@ datasets_getdatasetsingroupasadmin <- function(token, groupId) {
 #' @export
 datasets_getdatasettodataflowslinksingroupasadmin <- function(token, groupId) {
   path <- "https://api.powerbi.com/v1.0/myorg/admin/groups/{groupId}/datasets/upstreamDataflows"
-  httr::GET(glue::glue(path), httr::config(token = token))
+  response <- httr::GET(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Returns a list of datasources for the specified dataset.Note: The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. This API processes each request for 0.5 seconds, in the mean time other requests  will be queued. Required scope: Tenant.Read.AllApplication only and delegated permissions are supported.To set the permissions scope, see Register an app. 
@@ -151,7 +207,11 @@ datasets_getdatasettodataflowslinksingroupasadmin <- function(token, groupId) {
 #' @export
 datasets_getdatasourcesasadmin <- function(token, datasetId) {
   path <- "https://api.powerbi.com/v1.0/myorg/admin/datasets/{datasetId}/datasources"
-  httr::GET(glue::glue(path), httr::config(token = token))
+  response <- httr::GET(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Returns a list of audit activity events for a tenant.Note: The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. This API allows 200 requests per hour at maximum. Required scope: Tenant.Read.All or Tenant.ReadWrite.All. To call this API, provide either a continuation token or both a start and end date time. StartDateTime and EndDateTime must be in the same UTC day. 
@@ -163,7 +223,11 @@ datasets_getdatasourcesasadmin <- function(token, datasetId) {
 #' @export
 get_activity_events <- function(token, continuationToken, endDateTime, startDateTime) {
   path <- "https://api.powerbi.com/v1.0/myorg/admin/activityevents"
-  httr::GET(glue::glue(path), httr::config(token = token))
+  response <- httr::GET(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Returns a list of capacities for the organization.Note: The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. Required scope: Tenant.Read.All or Tenant.ReadWrite.AllTo set the permissions scope, see Register an app. 
@@ -172,7 +236,11 @@ get_activity_events <- function(token, continuationToken, endDateTime, startDate
 #' @export
 get_capacities_as_admin <- function(token) {
   path <- "https://api.powerbi.com/v1.0/myorg/admin/capacities"
-  httr::GET(glue::glue(path), httr::config(token = token))
+  response <- httr::GET(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Returns the encryption keys for the tenant.Note: The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. Required scope: Tenant.Read.All or Tenant.ReadWrite.AllTo set the permissions scope, see Register an app. 
@@ -181,7 +249,11 @@ get_capacities_as_admin <- function(token) {
 #' @export
 get_power_bi_encryption_keys <- function(token) {
   path <- "https://api.powerbi.com/v1.0/myorg/admin/tenantKeys"
-  httr::GET(glue::glue(path), httr::config(token = token))
+  response <- httr::GET(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Grants user permissions to the specified workspace.Note: This API is currently limited to updating workspaces in the new workspace experience. The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. This API allows 200 requests per hour at maximum. Required scope: Tenant.ReadWrite.AllTo set the permissions scope, see Register an app. 
@@ -190,7 +262,11 @@ get_power_bi_encryption_keys <- function(token) {
 #' @export
 groups_adduserasadmin <- function(token, groupId) {
   path <- "https://api.powerbi.com/v1.0/myorg/admin/groups/{groupId}/users"
-  httr::POST(glue::glue(path), httr::config(token = token))
+  response <- httr::POST(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Removes user permissions to the specified workspace.Note: This API is currently limited to updating workspaces in the new workspace experience. The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. This API allows 200 requests per hour at maximum. Required scope: Tenant.ReadWrite.AllTo set the permissions scope, see Register an app. 
@@ -200,7 +276,11 @@ groups_adduserasadmin <- function(token, groupId) {
 #' @export
 groups_deleteuserasadmin <- function(token, groupId, user) {
   path <- "https://api.powerbi.com/v1.0/myorg/admin/groups/{groupId}/users/{user}"
-  httr::DELETE(glue::glue(path), httr::config(token = token))
+  response <- httr::DELETE(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Returns a list of workspaces for the organization.Note: The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. This API allows 200 requests per hour at maximum. Required scope: Tenant.Read.All or Tenant.ReadWrite.AllTo set the permissions scope, see Register an app. 
@@ -212,7 +292,11 @@ groups_deleteuserasadmin <- function(token, groupId, user) {
 #' @export
 groups_getgroupsasadmin <- function(token) {
   path <- "https://api.powerbi.com/v1.0/myorg/admin/groups?$top={$top}"
-  httr::GET(glue::glue(path), httr::config(token = token))
+  response <- httr::GET(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Restores a deleted workspace.Note: This API is currently limited to restoring workspaces in the new workspace experience. The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. This API allows 200 requests per hour at maximum. This API allows 200 requests per hour at maximum. Required scope: Tenant.ReadWrite.AllTo set the permissions scope, see Register an app. 
@@ -221,7 +305,11 @@ groups_getgroupsasadmin <- function(token) {
 #' @export
 groups_restoredeletedgroupasadmin <- function(token, groupId) {
   path <- "https://api.powerbi.com/v1.0/myorg/admin/groups/{groupId}/restore"
-  httr::POST(glue::glue(path), httr::config(token = token))
+  response <- httr::POST(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Updates the specified workspace properties.Note: This API is currently limited to updating workspaces in the new workspace experience. Only name and description can be updated, and name must be unique inside an organization. The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. This API allows 200 requests per hour at maximum. Required scope: Tenant.ReadWrite.AllTo set the permissions scope, see Register an app. 
@@ -230,7 +318,11 @@ groups_restoredeletedgroupasadmin <- function(token, groupId) {
 #' @export
 groups_updategroupasadmin <- function(token, groupId) {
   path <- "https://api.powerbi.com/v1.0/myorg/admin/groups/{groupId}"
-  httr::PATCH(glue::glue(path), httr::config(token = token))
+  response <- httr::PATCH(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Returns a list of imports for the organization.Note: The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. Required scope: Tenant.Read.All or Tenant.ReadWrite.AllTo set the permissions scope, see Register an app. 
@@ -242,7 +334,11 @@ groups_updategroupasadmin <- function(token, groupId) {
 #' @export
 imports_getimportsasadmin <- function(token) {
   path <- "https://api.powerbi.com/v1.0/myorg/admin/imports"
-  httr::GET(glue::glue(path), httr::config(token = token))
+  response <- httr::GET(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Changes the specific capacity information. Currently, only supports changing the capacity encryption keyNote: The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. Required scope: Tenant.Read.All or Tenant.ReadWrite.AllTo set the permissions scope, see Register an app. 
@@ -251,7 +347,11 @@ imports_getimportsasadmin <- function(token) {
 #' @export
 patch_capacity_as_admin <- function(token, capacityId) {
   path <- "https://api.powerbi.com/v1.0/myorg/admin/capacities/{capacityId}"
-  httr::PATCH(glue::glue(path), httr::config(token = token))
+  response <- httr::PATCH(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Returns a list of reports for the organization.Note: The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. Required scope: Tenant.Read.All or Tenant.ReadWrite.AllTo set the permissions scope, see Register an app. 
@@ -262,7 +362,11 @@ patch_capacity_as_admin <- function(token, capacityId) {
 #' @export
 reports_getreportsasadmin <- function(token) {
   path <- "https://api.powerbi.com/v1.0/myorg/admin/reports"
-  httr::GET(glue::glue(path), httr::config(token = token))
+  response <- httr::GET(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Returns a list of reports from the specified workspace.Note: The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. This API allows 200 requests per hour at maximum. Required scope: Tenant.Read.All or Tenant.ReadWrite.AllTo set the permissions scope, see Register an app. 
@@ -274,7 +378,11 @@ reports_getreportsasadmin <- function(token) {
 #' @export
 reports_getreportsingroupasadmin <- function(token, groupId) {
   path <- "https://api.powerbi.com/v1.0/myorg/admin/groups/{groupId}/reports"
-  httr::GET(glue::glue(path), httr::config(token = token))
+  response <- httr::GET(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }
 
 #' Rotate the encryption key for Power BI workspaces assigned to a capacity.Note: The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. This API allows 600 requests per hour at maximum. Required scope: Tenant.Read.All or Tenant.ReadWrite.AllTo set the permissions scope, see Register an app. 
@@ -283,5 +391,9 @@ reports_getreportsingroupasadmin <- function(token, groupId) {
 #' @export
 rotate_power_bi_encryption_key <- function(token, tenantKeyId) {
   path <- "https://api.powerbi.com/v1.0/myorg/admin/tenantKeys/{tenantKeyId}/Default.Rotate"
-  httr::POST(glue::glue(path), httr::config(token = token))
+  response <- httr::POST(glue::glue(path), httr::config(token = token))
+  content <- jsonlite::fromJSON(
+    httr::content(response, type = "text", encoding = "UTF-8")
+  )
+  content$value
 }

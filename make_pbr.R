@@ -1,6 +1,6 @@
 library(rvest)
 
-url = "https://docs.microsoft.com/en-us/rest/api/power-bi/groups/updategroupuser"
+# url = "https://docs.microsoft.com/en-us/rest/api/power-bi/groups/updategroupuser"
 make_operation <- function(url, name) {
   message(url)
   page <- read_html(url)
@@ -53,7 +53,11 @@ functionalize <- function(name, method, path, param_names) {
   glue::glue(
     "[name] <- function(token[param_names]) {
       path <- \"[path]\"
-      httr::[method](glue::glue(path), httr::config(token = token))
+      response <- httr::[method](glue::glue(path), httr::config(token = token))
+      content <- jsonlite::fromJSON(
+        httr::content(response, type = \"text\", encoding = \"UTF-8\")
+      )
+      content$value
     }",
     .open = "[",
     .close = "]"
@@ -77,31 +81,36 @@ get_table_col <- function(url, type = "path") {
   }
 }
 
-base_url <- "https://docs.microsoft.com/en-us/rest/api/power-bi/"
-groups <- get_table_col(base_url)
-group_urls <- paste0(base_url, gsub(" ", "", groups), "/")
-operations <- lapply(group_urls, get_table_col)
-function_names <- lapply(group_urls, get_table_col, type = "name")
-operation_urls <- lapply(operations, function(x) paste0(base_url, x))
-operation_functions <- mapply(
-  function(url, name) {
-    unlist(mapply(make_operation, url, name))
-  },
-  url = operation_urls,
-  name = function_names
-)
-script_names <- gsub(" ", "_", get_table_col(base_url, type = "name"))
-names(operation_functions) <- script_names
-if (!file.exists("R")) dir.create("R")
-mapply(
-  function(funs, script_name) {
-    script <- paste(funs, collapse = "\n\n")
-    write(script, file = file.path("R", glue::glue("{script_name}.R")))
-    TRUE
-  },
-  funs = operation_functions,
-  script_name = script_names
-)
+make_pbr <- function() {
+  base_url <- "https://docs.microsoft.com/en-us/rest/api/power-bi/"
+  groups <- get_table_col(base_url)
+  group_urls <- paste0(base_url, gsub(" ", "", groups), "/")
+  operations <- lapply(group_urls, get_table_col)
+  function_names <- lapply(group_urls, get_table_col, type = "name")
+  operation_urls <- lapply(operations, function(x) paste0(base_url, x))
+  operation_functions <- mapply(
+    function(url, name) {
+      unlist(mapply(make_operation, url, name))
+    },
+    url = operation_urls,
+    name = function_names
+  )
+  script_names <- gsub(" ", "_", get_table_col(base_url, type = "name"))
+  names(operation_functions) <- script_names
+  if (!file.exists("R")) dir.create("R")
+  mapply(
+    function(funs, script_name) {
+      script <- paste(funs, collapse = "\n\n")
+      write(script, file = file.path("R", glue::glue("{script_name}.R")))
+      TRUE
+    },
+    funs = operation_functions,
+    script_name = script_names
+  )
+  roxygen2::roxygenise()
+}
+
+make_pbr()
 
 # TODO fix body params
 # TODO fix optional uri pars with $ stuff
