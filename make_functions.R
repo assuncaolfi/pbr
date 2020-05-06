@@ -1,6 +1,6 @@
 library(rvest)
 
-# url="https://docs.microsoft.com/en-us/rest/api/power-bi/apps/getapps"
+url = "https://docs.microsoft.com/en-us/rest/api/power-bi/groups/updategroupuser"
 make_operation <- function(url, name) {
   message(url)
   page <- read_html(url)
@@ -15,10 +15,14 @@ make_operation <- function(url, name) {
     html_node("p") %>% 
     html_text() %>% 
     sub(" To set the permissions scope, see Register an app.", "", .)
-  params <- html_table(page)[[1]]
+  tables <- html_table(page)
+  params <- tables[[1]]
   param_names <- params$Name
-  param_names <- gsub("$", "", param_names, fixed = TRUE)
-  if (param_names == "200 OK") {
+  # param_names <- gsub("$", "", param_names, fixed = TRUE)
+  param_names <- param_names[!grepl("$", param_names, fixed = TRUE)]
+  if (length(param_names) == 0) {
+    param_names <- NULL
+  } else if (param_names == "200 OK") {
     param_names <- NULL
   }
   param_descriptions <- params$Description
@@ -49,7 +53,7 @@ functionalize <- function(name, method, path, param_names) {
   glue::glue(
     "[name] <- function(token[param_names]) {
       path <- \"[path]\"
-      httr::[method](glue::glue(path), config(token = token))
+      httr::[method](glue::glue(path), httr::config(token = token))
     }",
     .open = "[",
     .close = "]"
@@ -99,5 +103,5 @@ mapply(
   script_name = script_names
 )
 
-# TODO fix POST params (to payload, not url)
-# TODO fix optional pars with $ stuff
+# TODO fix body params
+# TODO fix optional uri pars with $ stuff

@@ -4,14 +4,14 @@
 \alias{get_groups}
 \title{Returns a list of workspaces the user has access to.Note: Users that have been recently added to a group may not have their new group immediately available, see Refresh user permissions.Required scope: Workspace.Read.All or Workspace.ReadWrite.AllTo set the permissions scope, see Register an app.}
 \usage{
-get_groups(token, filter, skip, top)
+get_groups(token)
 }
 \arguments{
-\item{filter}{Filters the results, based on a boolean condition}
+\item{Filters}{the results, based on a boolean condition}
 
-\item{skip}{Skips the first n results}
+\item{Skips}{the first n results}
 
-\item{top}{Returns only the first n results}
+\item{Returns}{only the first n results}
 }
 \value{
 A `data.frame` object.

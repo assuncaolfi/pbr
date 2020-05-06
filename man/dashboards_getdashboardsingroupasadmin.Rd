@@ -4,16 +4,10 @@
 \alias{dashboards_getdashboardsingroupasadmin}
 \title{Returns a list of dashboards from the specified workspace.Note: The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. This API allows 200 requests per hour at maximum. Required scope: Tenant.Read.All or Tenant.ReadWrite.AllTo set the permissions scope, see Register an app.}
 \usage{
-dashboards_getdashboardsingroupasadmin(token, groupId, filter, skip, top)
+dashboards_getdashboardsingroupasadmin(token, groupId)
 }
 \arguments{
-\item{groupId}{The workspace id}
-
-\item{filter}{Filters the results, based on a boolean condition}
-
-\item{skip}{Skips the first n results}
-
-\item{top}{Returns only the first n results}
+\item{groupId}{Returns only the first n results}
 }
 \value{
 A `data.frame` object.

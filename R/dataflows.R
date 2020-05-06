@@ -5,7 +5,7 @@
 #' @export
 delete_dataflow <- function(token, dataflowId, groupId) {
   path <- "https://api.powerbi.com/v1.0/myorg/groups/{groupId}/dataflows/{dataflowId}"
-  httr::DELETE(glue::glue(path), config(token = token))
+  httr::DELETE(glue::glue(path), httr::config(token = token))
 }
 
 #' Exports the specified dataflow definition to a .json file.Required scope: Dataflow.ReadWrite.All or Dataflow.Read.All 
@@ -15,7 +15,7 @@ delete_dataflow <- function(token, dataflowId, groupId) {
 #' @export
 get_dataflow <- function(token, dataflowId, groupId) {
   path <- "https://api.powerbi.com/v1.0/myorg/groups/{groupId}/dataflows/{dataflowId}"
-  httr::GET(glue::glue(path), config(token = token))
+  httr::GET(glue::glue(path), httr::config(token = token))
 }
 
 #' Returns a list of datasources for the specified dataflow.Required scope: Dataflow.ReadWrite.All or Dataflow.Read.All 
@@ -25,7 +25,7 @@ get_dataflow <- function(token, dataflowId, groupId) {
 #' @export
 get_dataflow_data_sources <- function(token, dataflowId, groupId) {
   path <- "https://api.powerbi.com/v1.0/myorg/groups/{groupId}/dataflows/{dataflowId}/datasources"
-  httr::GET(glue::glue(path), config(token = token))
+  httr::GET(glue::glue(path), httr::config(token = token))
 }
 
 #' Returns a list of all dataflows from the specified workspace.Required scope: Dataflow.ReadWrite.All or Dataflow.Read.All 
@@ -34,7 +34,7 @@ get_dataflow_data_sources <- function(token, dataflowId, groupId) {
 #' @export
 get_dataflows <- function(token, groupId) {
   path <- "https://api.powerbi.com/v1.0/myorg/groups/{groupId}/dataflows"
-  httr::GET(glue::glue(path), config(token = token))
+  httr::GET(glue::glue(path), httr::config(token = token))
 }
 
 #' Returns a list of upstream dataflows for the specified dataflow.Required scope: Dataflow.ReadWrite.All or Dataflow.Read.AllTo set the permissions scope, see Register an app. 
@@ -44,7 +44,7 @@ get_dataflows <- function(token, groupId) {
 #' @export
 get_upstream_dataflows_in_group <- function(token, dataflowId, groupId) {
   path <- "https://api.powerbi.com/v1.0/myorg/groups/{groupId}/dataflows/{dataflowId}/upstreamDataflows"
-  httr::GET(glue::glue(path), config(token = token))
+  httr::GET(glue::glue(path), httr::config(token = token))
 }
 
 #' Triggers a refresh for the specified dataflow.Required scope: Dataflow.ReadWrite.All 
@@ -54,7 +54,7 @@ get_upstream_dataflows_in_group <- function(token, dataflowId, groupId) {
 #' @export
 refresh_dataflow <- function(token, dataflowId, groupId) {
   path <- "https://api.powerbi.com/v1.0/myorg/groups/{groupId}/dataflows/{dataflowId}/refreshes"
-  httr::POST(glue::glue(path), config(token = token))
+  httr::POST(glue::glue(path), httr::config(token = token))
 }
 
 #' Creates or updates the specified dataflow refresh schedule configuration.Required scope: Dataflow.ReadWrite.All 
@@ -64,5 +64,5 @@ refresh_dataflow <- function(token, dataflowId, groupId) {
 #' @export
 update_refresh_schedule <- function(token, dataflowId, groupId) {
   path <- "https://api.powerbi.com/v1.0/myorg/groups/{groupId}/dataflows/{dataflowId}/refreshSchedule"
-  httr::PATCH(glue::glue(path), config(token = token))
+  httr::PATCH(glue::glue(path), httr::config(token = token))
 }

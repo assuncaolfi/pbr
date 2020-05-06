@@ -4,16 +4,16 @@
 \alias{imports_getimportsasadmin}
 \title{Returns a list of imports for the organization.Note: The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. Required scope: Tenant.Read.All or Tenant.ReadWrite.AllTo set the permissions scope, see Register an app.}
 \usage{
-imports_getimportsasadmin(token, expand, filter, skip, top)
+imports_getimportsasadmin(token)
 }
 \arguments{
-\item{expand}{Expands related entities inline}
+\item{Expands}{related entities inline}
 
-\item{filter}{Filters the results, based on a boolean condition}
+\item{Filters}{the results, based on a boolean condition}
 
-\item{skip}{Skips the first n results}
+\item{Skips}{the first n results}
 
-\item{top}{Returns only the first n results}
+\item{Returns}{only the first n results}
 }
 \value{
 A `data.frame` object.

@@ -4,12 +4,10 @@
 \alias{get_refresh_history}
 \title{Returns the refresh history of the specified dataset from "My Workspace".Required scope: Dataset.ReadWrite.All or Dataset.Read.All}
 \usage{
-get_refresh_history(token, datasetId, top)
+get_refresh_history(token, datasetId)
 }
 \arguments{
-\item{datasetId}{The dataset id}
-
-\item{top}{The requested number of entries in the refresh history. If not provided, the default is all available entries.}
+\item{datasetId}{The requested number of entries in the refresh history. If not provided, the default is all available entries.}
 }
 \value{
 A `data.frame` object.

@@ -4,7 +4,7 @@
 #' @export
 get_app <- function(token, appId) {
   path <- "https://api.powerbi.com/v1.0/myorg/apps/{appId}"
-  httr::GET(glue::glue(path), config(token = token))
+  httr::GET(glue::glue(path), httr::config(token = token))
 }
 
 #' Returns a list of installed apps.Required scope: App.Read.AllTo set the permissions scope, see Register an app. 
@@ -13,7 +13,7 @@ get_app <- function(token, appId) {
 #' @export
 get_apps <- function(token) {
   path <- "https://api.powerbi.com/v1.0/myorg/apps"
-  httr::GET(glue::glue(path), config(token = token))
+  httr::GET(glue::glue(path), httr::config(token = token))
 }
 
 #' Returns the specified dashboard from the specified app.Required scope: Dashboard.ReadWrite.All or Dashboard.Read.All 
@@ -23,7 +23,7 @@ get_apps <- function(token) {
 #' @export
 get_dashboard <- function(token, appId, dashboardId) {
   path <- "https://api.powerbi.com/v1.0/myorg/apps/{appId}/dashboards/{dashboardId}"
-  httr::GET(glue::glue(path), config(token = token))
+  httr::GET(glue::glue(path), httr::config(token = token))
 }
 
 #' Returns a list of dashboards from the specified app.Required scope: Dashboard.ReadWrite.All or Dashboard.Read.All 
@@ -32,7 +32,7 @@ get_dashboard <- function(token, appId, dashboardId) {
 #' @export
 get_dashboards <- function(token, appId) {
   path <- "https://api.powerbi.com/v1.0/myorg/apps/{appId}/dashboards"
-  httr::GET(glue::glue(path), config(token = token))
+  httr::GET(glue::glue(path), httr::config(token = token))
 }
 
 #' Returns the specified report from the specified app.Required scope: Report.ReadWrite.All or Report.Read.All 
@@ -42,7 +42,7 @@ get_dashboards <- function(token, appId) {
 #' @export
 get_report <- function(token, appId, reportId) {
   path <- "https://api.powerbi.com/v1.0/myorg/apps/{appId}/reports/{reportId}"
-  httr::GET(glue::glue(path), config(token = token))
+  httr::GET(glue::glue(path), httr::config(token = token))
 }
 
 #' Returns a list of reports from the specified app.Required scope: Report.ReadWrite.All or Report.Read.All 
@@ -51,7 +51,7 @@ get_report <- function(token, appId, reportId) {
 #' @export
 get_reports <- function(token, appId) {
   path <- "https://api.powerbi.com/v1.0/myorg/apps/{appId}/reports"
-  httr::GET(glue::glue(path), config(token = token))
+  httr::GET(glue::glue(path), httr::config(token = token))
 }
 
 #' Returns the specified tile within the specified dashboard from the specified app.Note: All tile types are supported except for "model tiles", which include datasets and live tiles that contain an entire report page. Required scope: Dashboard.ReadWrite.All or Dashboard.Read.All 
@@ -62,7 +62,7 @@ get_reports <- function(token, appId) {
 #' @export
 get_tile <- function(token, appId, dashboardId, tileId) {
   path <- "https://api.powerbi.com/v1.0/myorg/apps/{appId}/dashboards/{dashboardId}/tiles/{tileId}"
-  httr::GET(glue::glue(path), config(token = token))
+  httr::GET(glue::glue(path), httr::config(token = token))
 }
 
 #' Returns a list of tiles within the specified dashboard from the specified app.Required scope: Dashboard.ReadWrite.All or Dashboard.Read.All 
@@ -72,5 +72,5 @@ get_tile <- function(token, appId, dashboardId, tileId) {
 #' @export
 get_tiles <- function(token, appId, dashboardId) {
   path <- "https://api.powerbi.com/v1.0/myorg/apps/{appId}/dashboards/{dashboardId}/tiles"
-  httr::GET(glue::glue(path), config(token = token))
+  httr::GET(glue::glue(path), httr::config(token = token))
 }

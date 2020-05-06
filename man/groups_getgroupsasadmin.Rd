@@ -4,16 +4,16 @@
 \alias{groups_getgroupsasadmin}
 \title{Returns a list of workspaces for the organization.Note: The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. This API allows 200 requests per hour at maximum. Required scope: Tenant.Read.All or Tenant.ReadWrite.AllTo set the permissions scope, see Register an app.}
 \usage{
-groups_getgroupsasadmin(token, expand, filter, skip, top)
+groups_getgroupsasadmin(token)
 }
 \arguments{
-\item{expand}{Expands related entities inline, receives a comma-separated list of data types. Supported: users, reports, dashboards, datasets, dataflows, workbooks}
+\item{Expands}{related entities inline, receives a comma-separated list of data types. Supported: users, reports, dashboards, datasets, dataflows, workbooks}
 
-\item{filter}{Filters the results based on a boolean condition}
+\item{Filters}{the results based on a boolean condition}
 
-\item{skip}{Skips the first n results. Use with top to fetch results beyond the first 5000.}
+\item{Skips}{the first n results. Use with top to fetch results beyond the first 5000.}
 
-\item{top}{Returns only the first n results. This parameter is mandatory and must be in the range of 1-5000.}
+\item{Returns}{only the first n results. This parameter is mandatory and must be in the range of 1-5000.}
 }
 \value{
 A `data.frame` object.
