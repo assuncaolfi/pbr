@@ -1,0 +1,11 @@
+Package: pbr
+Title: Power BI API Wrapper
+Version: 0.1
+Authors@R: person("Luís", "Assunção", email = "assuncaolfi@gmail.com",
+                  role = c("aut", "cre"))
+Description: Functions for authenticating and accessing Power BI's API.
+Depends: R (>= 3.1.0)
+License: MIT
+LazyData: true
+RoxygenNote: 7.1.0
+Encoding: UTF-8
