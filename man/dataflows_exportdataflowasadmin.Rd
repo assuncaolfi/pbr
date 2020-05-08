@@ -4,10 +4,10 @@
 \alias{dataflows_exportdataflowasadmin}
 \title{Exports the specified dataflow definition to a .json file.Note: The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. Required scope: Tenant.Read.AllApplication only and delegated permissions are supported.To set the permissions scope, see Register an app.}
 \usage{
-dataflows_exportdataflowasadmin(token, dataflowId)
+dataflows_exportdataflowasadmin(token, dataflowId, output = "value")
 }
 \arguments{
-\item{dataflowId}{The dataflow id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

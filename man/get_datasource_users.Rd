@@ -4,12 +4,10 @@
 \alias{get_datasource_users}
 \title{Returns a list of users who have access to the specified datasource.Required scope: Dataset.ReadWrite.All or Dataset.Read.AllTo set the permissions scope, see Register an app.}
 \usage{
-get_datasource_users(token, datasourceId, gatewayId)
+get_datasource_users(token, datasourceId, gatewayId, output = "value")
 }
 \arguments{
-\item{datasourceId}{The datasource id}
-
-\item{gatewayId}{The gateway id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

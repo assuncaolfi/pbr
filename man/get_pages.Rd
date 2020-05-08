@@ -4,10 +4,10 @@
 \alias{get_pages}
 \title{Returns a list of pages within the specified report from "My Workspace".Required scope: Report.ReadWrite.All or Report.Read.All}
 \usage{
-get_pages(token, reportId)
+get_pages(token, reportId, output = "value")
 }
 \arguments{
-\item{reportId}{The report id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

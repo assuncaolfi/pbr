@@ -4,12 +4,16 @@
 \alias{update_datasource}
 \title{Updates the credentials of the specified datasource from the specified gateway.Required scope: Dataset.ReadWrite.All}
 \usage{
-update_datasource(token, datasourceId, gatewayId)
+update_datasource(
+  token,
+  datasourceId,
+  gatewayId,
+  credentialDetails,
+  output = "value"
+)
 }
 \arguments{
-\item{datasourceId}{The datasource id}
-
-\item{gatewayId}{The gateway id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

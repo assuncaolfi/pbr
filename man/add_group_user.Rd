@@ -4,10 +4,19 @@
 \alias{add_group_user}
 \title{Grants the specified user permissions to the specified workspace.Notes:}
 \usage{
-add_group_user(token, groupId)
+add_group_user(
+  token,
+  groupId,
+  displayName,
+  emailAddress,
+  groupUserAccessRight,
+  identifier,
+  principalType,
+  output = "value"
+)
 }
 \arguments{
-\item{groupId}{The workspace id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

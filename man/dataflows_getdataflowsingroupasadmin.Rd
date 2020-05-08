@@ -4,10 +4,17 @@
 \alias{dataflows_getdataflowsingroupasadmin}
 \title{Returns a list of dataflows from the specified workspace.Note: The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. Required scope: Tenant.Read.All or Tenant.ReadWrite.AllTo set the permissions scope, see Register an app.}
 \usage{
-dataflows_getdataflowsingroupasadmin(token, groupId)
+dataflows_getdataflowsingroupasadmin(
+  token,
+  groupId,
+  filter,
+  skip,
+  top,
+  output = "value"
+)
 }
 \arguments{
-\item{groupId}{Returns only the first n results}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

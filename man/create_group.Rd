@@ -4,10 +4,10 @@
 \alias{create_group}
 \title{Creates new workspace.Required scope: Workspace.ReadWrite.AllTo set the permissions scope, see Register an app.}
 \usage{
-create_group(token, workspaceV2)
+create_group(token, workspaceV2 = NULL, name, output = "value")
 }
 \arguments{
-\item{workspaceV2}{Preview feature: Create a workspace V2. The only supported value is true.}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

@@ -4,12 +4,10 @@
 \alias{delete_dataset_in_group}
 \title{Deletes the specified dataset from the specified workspace.Required scope: Dataset.ReadWrite.All}
 \usage{
-delete_dataset_in_group(token, datasetId, groupId)
+delete_dataset_in_group(token, datasetId, groupId, output = "value")
 }
 \arguments{
-\item{datasetId}{The dataset id}
-
-\item{groupId}{The workspace id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

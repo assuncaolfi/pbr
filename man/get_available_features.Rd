@@ -4,10 +4,10 @@
 \alias{get_available_features}
 \title{Returns a list of available features for the userRequired scope: None}
 \usage{
-get_available_features(token)
+get_available_features(token, output = "value")
 }
 \arguments{
-\item{OK}{}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

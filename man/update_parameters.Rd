@@ -4,10 +4,10 @@
 \alias{update_parameters}
 \title{Updates the parameters values for the specified dataset from "My Workspace".Important: The dataset must be refreshed for new parameters values to be applied. Wait 30 minutes for the update parameters operation to complete before refreshing.Required scope: Dataset.ReadWrite.All}
 \usage{
-update_parameters(token, datasetId)
+update_parameters(token, datasetId, updateDetails, output = "value")
 }
 \arguments{
-\item{datasetId}{The dataset id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

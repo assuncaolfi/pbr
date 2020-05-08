@@ -4,10 +4,10 @@
 \alias{get_direct_query_refresh_schedule}
 \title{Returns the refresh schedule of a specified DirectQuery or LiveConnection dataset from "My Workspace".Required scope: Dataset.ReadWrite.All or Dataset.Read.All}
 \usage{
-get_direct_query_refresh_schedule(token, datasetId)
+get_direct_query_refresh_schedule(token, datasetId, output = "value")
 }
 \arguments{
-\item{datasetId}{The dataset id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

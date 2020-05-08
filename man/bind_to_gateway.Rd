@@ -4,10 +4,16 @@
 \alias{bind_to_gateway}
 \title{Binds the specified dataset from "My Workspace" to the specified gateway with (optional) given set of datasource Ids. This only supports the On-Premises Data Gateway.Required scope: Dataset.ReadWrite.All}
 \usage{
-bind_to_gateway(token, datasetId)
+bind_to_gateway(
+  token,
+  datasetId,
+  datasourceObjectIds,
+  gatewayObjectId,
+  output = "value"
+)
 }
 \arguments{
-\item{datasetId}{The dataset id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

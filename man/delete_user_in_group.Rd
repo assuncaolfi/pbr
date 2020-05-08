@@ -4,12 +4,10 @@
 \alias{delete_user_in_group}
 \title{Deletes the specified user permissions from the specified workspace.Required scope: Workspace.ReadWrite.AllTo set the permissions scope, see Register an app.}
 \usage{
-delete_user_in_group(token, groupId, user)
+delete_user_in_group(token, groupId, user, output = "value")
 }
 \arguments{
-\item{groupId}{The workspace id}
-
-\item{user}{The email address of the user or the service principal object id to delete}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

@@ -1,93 +1,83 @@
 #' Grants the specified user permissions to the specified workspace.Notes:  
-#' @param groupId The workspace id 
+#' @param groupId OK 
 #' @return A `data.frame` object. 
 #' @export
-add_group_user <- function(token, groupId) {
+add_group_user <- function(token, groupId, displayName, emailAddress, groupUserAccessRight, identifier, principalType, output = "value") {
   path <- "https://api.powerbi.com/v1.0/myorg/groups/{groupId}/users"
-  response <- httr::POST(glue::glue(path), httr::config(token = token))
-  content <- jsonlite::fromJSON(
-    httr::content(response, type = "text", encoding = "UTF-8")
-  )
-  content$value
+  response <- httr::POST(url = glue::glue(path),
+                             config = httr::config(token = token),
+                             body = list(displayName = displayName, emailAddress = emailAddress, groupUserAccessRight = groupUserAccessRight, identifier = identifier, principalType = principalType))
+  process(response, output)
 }
 
 #' Creates new workspace.Required scope: Workspace.ReadWrite.AllTo set the permissions scope, see Register an app. 
-#' @param workspaceV2 Preview feature: Create a workspace V2. The only supported value is true. 
+#' @param groupId OK 
 #' @return A `data.frame` object. 
 #' @export
-create_group <- function(token, workspaceV2) {
+create_group <- function(token, workspaceV2 = NULL, name, output = "value") {
   path <- "https://api.powerbi.com/v1.0/myorg/groups"
-  response <- httr::POST(glue::glue(path), httr::config(token = token))
-  content <- jsonlite::fromJSON(
-    httr::content(response, type = "text", encoding = "UTF-8")
-  )
-  content$value
+  response <- httr::POST(url = glue::glue(path),
+                             config = httr::config(token = token),
+                             body = list(name = name))
+  process(response, output)
 }
 
 #' Deletes the specified workspace.Required scope: Workspace.ReadWrite.AllTo set the permissions scope, see Register an app. 
-#' @param groupId The workspace id to delete 
+#' @param groupId OK 
 #' @return A `data.frame` object. 
 #' @export
-delete_group <- function(token, groupId) {
+delete_group <- function(token, groupId, output = "value") {
   path <- "https://api.powerbi.com/v1.0/myorg/groups/{groupId}"
-  response <- httr::DELETE(glue::glue(path), httr::config(token = token))
-  content <- jsonlite::fromJSON(
-    httr::content(response, type = "text", encoding = "UTF-8")
-  )
-  content$value
+  response <- httr::DELETE(url = glue::glue(path),
+                             config = httr::config(token = token),
+                             body = FALSE)
+  process(response, output)
 }
 
 #' Deletes the specified user permissions from the specified workspace.Required scope: Workspace.ReadWrite.AllTo set the permissions scope, see Register an app. 
-#' @param groupId The workspace id
-#' @param user The email address of the user or the service principal object id to delete 
+#' @param groupId OK 
 #' @return A `data.frame` object. 
 #' @export
-delete_user_in_group <- function(token, groupId, user) {
+delete_user_in_group <- function(token, groupId, user, output = "value") {
   path <- "https://api.powerbi.com/v1.0/myorg/groups/{groupId}/users/{user}"
-  response <- httr::DELETE(glue::glue(path), httr::config(token = token))
-  content <- jsonlite::fromJSON(
-    httr::content(response, type = "text", encoding = "UTF-8")
-  )
-  content$value
+  response <- httr::DELETE(url = glue::glue(path),
+                             config = httr::config(token = token),
+                             body = FALSE)
+  process(response, output)
 }
 
 #' Returns a list of workspaces the user has access to.Note: Users that have been recently added to a group may not have their new group immediately available, see Refresh user permissions.Required scope: Workspace.Read.All or Workspace.ReadWrite.AllTo set the permissions scope, see Register an app. 
-#' @param  Filters the results, based on a boolean condition
-#' @param  Skips the first n results
-#' @param  Returns only the first n results 
+#' @param groupId OK 
 #' @return A `data.frame` object. 
 #' @export
-get_groups <- function(token) {
+get_groups <- function(token, filter = NULL, skip = NULL, top = NULL, output = "value") {
   path <- "https://api.powerbi.com/v1.0/myorg/groups"
-  response <- httr::GET(glue::glue(path), httr::config(token = token))
-  content <- jsonlite::fromJSON(
-    httr::content(response, type = "text", encoding = "UTF-8")
-  )
-  content$value
+  response <- httr::GET(url = glue::glue(path),
+                             config = httr::config(token = token),
+                             body = FALSE)
+  process(response, output)
 }
 
 #' Returns a list of users that have access to the specified workspace.Required scope: Workspace.Read.All or Workspace.ReadWrite.AllTo set the permissions scope, see Register an app. 
-#' @param groupId The workspace id 
+#' @param groupId OK 
 #' @return A `data.frame` object. 
 #' @export
-get_group_users <- function(token, groupId) {
+get_group_users <- function(token, groupId, output = "value") {
   path <- "https://api.powerbi.com/v1.0/myorg/groups/{groupId}/users"
-  response <- httr::GET(glue::glue(path), httr::config(token = token))
-  content <- jsonlite::fromJSON(
-    httr::content(response, type = "text", encoding = "UTF-8")
-  )
-  content$value
+  response <- httr::GET(url = glue::glue(path),
+                             config = httr::config(token = token),
+                             body = FALSE)
+  process(response, output)
 }
 
 #' Update the specified user permissions to the specified workspace.Notes:  
-#' @param groupId The workspace id 
+#' @param groupId OK 
 #' @return A `data.frame` object. 
 #' @export
-update_group_user <- function(token, groupId) {
+update_group_user <- function(token, groupId, displayName, emailAddress, groupUserAccessRight, identifier, principalType, output = "value") {
   path <- "https://api.powerbi.com/v1.0/myorg/groups/{groupId}/users"
-  response <- httr::PUT(glue::glue(path), httr::config(token = token))
-  content <- jsonlite::fromJSON(
-    httr::content(response, type = "text", encoding = "UTF-8")
-  )
-  content$value
+  response <- httr::PUT(url = glue::glue(path),
+                             config = httr::config(token = token),
+                             body = list(displayName = displayName, emailAddress = emailAddress, groupUserAccessRight = groupUserAccessRight, identifier = identifier, principalType = principalType))
+  process(response, output)
 }

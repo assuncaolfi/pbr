@@ -4,14 +4,20 @@
 \alias{tiles_generatetokeningroup}
 \title{Generates an embed token to view the specified tile from the specified workspace.This API is relevant only to 'App owns data' embed scenario.Required scope: (all of the below)}
 \usage{
-tiles_generatetokeningroup(token, dashboardId, groupId, tileId)
+tiles_generatetokeningroup(
+  token,
+  dashboardId,
+  groupId,
+  tileId,
+  accessLevel,
+  allowSaveAs,
+  datasetId,
+  identities,
+  output = "value"
+)
 }
 \arguments{
-\item{dashboardId}{The dashboard id}
-
-\item{groupId}{The workspace id}
-
-\item{tileId}{The tile id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

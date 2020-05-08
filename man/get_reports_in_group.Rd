@@ -4,10 +4,10 @@
 \alias{get_reports_in_group}
 \title{Returns a list of reports from the specified workspace.Required scope: Report.ReadWrite.All or Report.Read.All}
 \usage{
-get_reports_in_group(token, groupId)
+get_reports_in_group(token, groupId, output = "value")
 }
 \arguments{
-\item{groupId}{The workspace id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

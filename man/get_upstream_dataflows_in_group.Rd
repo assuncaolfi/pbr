@@ -4,12 +4,10 @@
 \alias{get_upstream_dataflows_in_group}
 \title{Returns a list of upstream dataflows for the specified dataflow.Required scope: Dataflow.ReadWrite.All or Dataflow.Read.AllTo set the permissions scope, see Register an app.}
 \usage{
-get_upstream_dataflows_in_group(token, dataflowId, groupId)
+get_upstream_dataflows_in_group(token, dataflowId, groupId, output = "value")
 }
 \arguments{
-\item{dataflowId}{The dataflow id}
-
-\item{groupId}{The workspace id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

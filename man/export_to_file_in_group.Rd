@@ -4,12 +4,18 @@
 \alias{export_to_file_in_group}
 \title{Exports the specified report from the specified workspace to the requested format.Required scope: (all of the below)}
 \usage{
-export_to_file_in_group(token, groupId, reportId)
+export_to_file_in_group(
+  token,
+  groupId,
+  reportId,
+  format,
+  paginatedReportConfiguration,
+  powerBIReportConfiguration,
+  output = "value"
+)
 }
 \arguments{
-\item{groupId}{The workspace id}
-
-\item{reportId}{The report id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

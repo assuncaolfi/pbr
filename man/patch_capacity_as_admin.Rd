@@ -4,10 +4,10 @@
 \alias{patch_capacity_as_admin}
 \title{Changes the specific capacity information. Currently, only supports changing the capacity encryption keyNote: The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. Required scope: Tenant.Read.All or Tenant.ReadWrite.AllTo set the permissions scope, see Register an app.}
 \usage{
-patch_capacity_as_admin(token, capacityId)
+patch_capacity_as_admin(token, capacityId, tenantKeyId, output = "value")
 }
 \arguments{
-\item{capacityId}{The capacity Id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

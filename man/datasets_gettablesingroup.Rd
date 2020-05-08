@@ -4,12 +4,10 @@
 \alias{datasets_gettablesingroup}
 \title{Returns a list of tables within the specified dataset from the specified workspace.Note: This API supports only Push datasets. Required scope: Dataset.ReadWrite.All or Dataset.Read.All}
 \usage{
-datasets_gettablesingroup(token, datasetId, groupId)
+datasets_gettablesingroup(token, datasetId, groupId, output = "value")
 }
 \arguments{
-\item{datasetId}{The dataset id}
-
-\item{groupId}{The workspace id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

@@ -4,12 +4,19 @@
 \alias{reports_generatetokeningroup}
 \title{Generates an embed token to view or edit the specified report from the specified workspace.This API is relevant only to 'App owns data' embed scenario.Required scope: (all of the below)}
 \usage{
-reports_generatetokeningroup(token, groupId, reportId)
+reports_generatetokeningroup(
+  token,
+  groupId,
+  reportId,
+  accessLevel,
+  allowSaveAs,
+  datasetId,
+  identities,
+  output = "value"
+)
 }
 \arguments{
-\item{groupId}{The workspace id}
-
-\item{reportId}{The report id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

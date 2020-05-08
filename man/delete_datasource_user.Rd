@@ -4,14 +4,16 @@
 \alias{delete_datasource_user}
 \title{Removes the specified user from the specified datasource.Required scope: Dataset.ReadWrite.All}
 \usage{
-delete_datasource_user(token, datasourceId, emailAdress, gatewayId)
+delete_datasource_user(
+  token,
+  datasourceId,
+  emailAdress,
+  gatewayId,
+  output = "value"
+)
 }
 \arguments{
-\item{datasourceId}{The datasource id}
-
-\item{emailAdress}{The user's email address or the service principal object id}
-
-\item{gatewayId}{The gateway id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

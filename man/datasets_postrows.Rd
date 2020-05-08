@@ -4,12 +4,10 @@
 \alias{datasets_postrows}
 \title{Adds new data rows to the specified table within the specified dataset from "My Workspace".Note: This API supports only Push datasets. REST API Limitations: See Power BI REST API limitations. Required scope: Dataset.ReadWrite.All}
 \usage{
-datasets_postrows(token, datasetId, tableName)
+datasets_postrows(token, datasetId, tableName, rows, output = "value")
 }
 \arguments{
-\item{datasetId}{The dataset id}
-
-\item{tableName}{The table name}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

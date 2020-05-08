@@ -4,12 +4,10 @@
 \alias{delete_dataflow}
 \title{Deletes a dataflow from the CDS for Analytics storage, including its definition file and actual model.Required scope: Dataflow.ReadWrite.All}
 \usage{
-delete_dataflow(token, dataflowId, groupId)
+delete_dataflow(token, dataflowId, groupId, output = "value")
 }
 \arguments{
-\item{dataflowId}{The dataflow id}
-
-\item{groupId}{The workspace id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

@@ -4,12 +4,10 @@
 \alias{datasets_deleterows}
 \title{Deletes all rows from the specified table within the specified dataset from "My Workspace".Note: this API supports only Push datasets. Required scope: Dataset.ReadWrite.All}
 \usage{
-datasets_deleterows(token, datasetId, tableName)
+datasets_deleterows(token, datasetId, tableName, output = "value")
 }
 \arguments{
-\item{datasetId}{The dataset id}
-
-\item{tableName}{The table name}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

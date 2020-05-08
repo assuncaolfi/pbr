@@ -4,14 +4,16 @@
 \alias{get_export_to_file_status_in_group}
 \title{Returns the status of the Export to file job from the specified workspace.Required scope: Report.ReadWrite.All or Report.Read.All}
 \usage{
-get_export_to_file_status_in_group(token, exportId, groupId, reportId)
+get_export_to_file_status_in_group(
+  token,
+  exportId,
+  groupId,
+  reportId,
+  output = "value"
+)
 }
 \arguments{
-\item{exportId}{The export id}
-
-\item{groupId}{The workspace id}
-
-\item{reportId}{The report id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

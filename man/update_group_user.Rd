@@ -4,10 +4,19 @@
 \alias{update_group_user}
 \title{Update the specified user permissions to the specified workspace.Notes:}
 \usage{
-update_group_user(token, groupId)
+update_group_user(
+  token,
+  groupId,
+  displayName,
+  emailAddress,
+  groupUserAccessRight,
+  identifier,
+  principalType,
+  output = "value"
+)
 }
 \arguments{
-\item{groupId}{The workspace id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

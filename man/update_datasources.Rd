@@ -4,10 +4,10 @@
 \alias{update_datasources}
 \title{Updates the datasources of the specified dataset from "My Workspace".Important:}
 \usage{
-update_datasources(token, datasetId)
+update_datasources(token, datasetId, updateDetails, output = "value")
 }
 \arguments{
-\item{datasetId}{The dataset id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

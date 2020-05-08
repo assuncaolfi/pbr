@@ -4,12 +4,10 @@
 \alias{get_tiles_in_group}
 \title{Returns a list of tiles within the specified dashboard from the specified workspace.Note: All tile types are supported except for "model tiles", which include datasets and live tiles that contain an entire report page. Required scope: Dashboard.ReadWrite.All or Dashboard.Read.All}
 \usage{
-get_tiles_in_group(token, dashboardId, groupId)
+get_tiles_in_group(token, dashboardId, groupId, output = "value")
 }
 \arguments{
-\item{dashboardId}{The dashboard id}
-
-\item{groupId}{The workspace id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

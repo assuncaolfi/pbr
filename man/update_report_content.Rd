@@ -4,10 +4,16 @@
 \alias{update_report_content}
 \title{Updates the specified report from "My Workspace" to have the same content as the report in the request body.Required scope: Report.ReadWrite.All}
 \usage{
-update_report_content(token, reportId)
+update_report_content(
+  token,
+  reportId,
+  sourceReport,
+  sourceType,
+  output = "value"
+)
 }
 \arguments{
-\item{reportId}{The report id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

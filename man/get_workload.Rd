@@ -4,12 +4,10 @@
 \alias{get_workload}
 \title{Returns the current state of a workload and if the workload is enabled also returns the maximum memory percentage that the workload can consume.Required scope: Capacity.Read.All or Capacity.ReadWrite.All}
 \usage{
-get_workload(token, capacityId, workloadName)
+get_workload(token, capacityId, workloadName, output = "value")
 }
 \arguments{
-\item{capacityId}{The capacity Id}
-
-\item{workloadName}{The name of the workload}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

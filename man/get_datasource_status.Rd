@@ -4,12 +4,10 @@
 \alias{get_datasource_status}
 \title{Checks the connectivity status of the specified datasource from the specified gateway.Required scope: Dataset.ReadWrite.All}
 \usage{
-get_datasource_status(token, datasourceId, gatewayId)
+get_datasource_status(token, datasourceId, gatewayId, output = "value")
 }
 \arguments{
-\item{datasourceId}{The datasource id}
-
-\item{gatewayId}{The gateway id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

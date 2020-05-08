@@ -4,10 +4,10 @@
 \alias{rebind_report}
 \title{Rebinds the specified report from "My Workspace" to the requested dataset.If the dataset resides in a different upgraded workspace, a shared dataset will be created in "My Workspace".Reports with live connection will lose the live connection when rebinding, and will have a direct binding to the target dataset.Required scope: Report.ReadWrite.All Required permissions: Report - Write permissions. Target dataset - Build permissions.}
 \usage{
-rebind_report(token, reportId)
+rebind_report(token, reportId, datasetId, output = "value")
 }
 \arguments{
-\item{reportId}{The report id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

@@ -1,96 +1,83 @@
 #' Deletes a dataflow from the CDS for Analytics storage, including its definition file and actual model.Required scope: Dataflow.ReadWrite.All 
-#' @param dataflowId The dataflow id
-#' @param groupId The workspace id 
+#' @param groupId OK 
 #' @return A `data.frame` object. 
 #' @export
-delete_dataflow <- function(token, dataflowId, groupId) {
+delete_dataflow <- function(token, dataflowId, groupId, output = "value") {
   path <- "https://api.powerbi.com/v1.0/myorg/groups/{groupId}/dataflows/{dataflowId}"
-  response <- httr::DELETE(glue::glue(path), httr::config(token = token))
-  content <- jsonlite::fromJSON(
-    httr::content(response, type = "text", encoding = "UTF-8")
-  )
-  content$value
+  response <- httr::DELETE(url = glue::glue(path),
+                             config = httr::config(token = token),
+                             body = FALSE)
+  process(response, output)
 }
 
 #' Exports the specified dataflow definition to a .json file.Required scope: Dataflow.ReadWrite.All or Dataflow.Read.All 
-#' @param dataflowId The dataflow id
-#' @param groupId The workspace id 
+#' @param groupId OK 
 #' @return A `data.frame` object. 
 #' @export
-get_dataflow <- function(token, dataflowId, groupId) {
+get_dataflow <- function(token, dataflowId, groupId, output = "value") {
   path <- "https://api.powerbi.com/v1.0/myorg/groups/{groupId}/dataflows/{dataflowId}"
-  response <- httr::GET(glue::glue(path), httr::config(token = token))
-  content <- jsonlite::fromJSON(
-    httr::content(response, type = "text", encoding = "UTF-8")
-  )
-  content$value
+  response <- httr::GET(url = glue::glue(path),
+                             config = httr::config(token = token),
+                             body = FALSE)
+  process(response, output)
 }
 
 #' Returns a list of datasources for the specified dataflow.Required scope: Dataflow.ReadWrite.All or Dataflow.Read.All 
-#' @param dataflowId The dataflow id
-#' @param groupId The workspace id 
+#' @param groupId OK 
 #' @return A `data.frame` object. 
 #' @export
-get_dataflow_data_sources <- function(token, dataflowId, groupId) {
+get_dataflow_data_sources <- function(token, dataflowId, groupId, output = "value") {
   path <- "https://api.powerbi.com/v1.0/myorg/groups/{groupId}/dataflows/{dataflowId}/datasources"
-  response <- httr::GET(glue::glue(path), httr::config(token = token))
-  content <- jsonlite::fromJSON(
-    httr::content(response, type = "text", encoding = "UTF-8")
-  )
-  content$value
+  response <- httr::GET(url = glue::glue(path),
+                             config = httr::config(token = token),
+                             body = FALSE)
+  process(response, output)
 }
 
 #' Returns a list of all dataflows from the specified workspace.Required scope: Dataflow.ReadWrite.All or Dataflow.Read.All 
-#' @param groupId The workspace id 
+#' @param groupId OK 
 #' @return A `data.frame` object. 
 #' @export
-get_dataflows <- function(token, groupId) {
+get_dataflows <- function(token, groupId, output = "value") {
   path <- "https://api.powerbi.com/v1.0/myorg/groups/{groupId}/dataflows"
-  response <- httr::GET(glue::glue(path), httr::config(token = token))
-  content <- jsonlite::fromJSON(
-    httr::content(response, type = "text", encoding = "UTF-8")
-  )
-  content$value
+  response <- httr::GET(url = glue::glue(path),
+                             config = httr::config(token = token),
+                             body = FALSE)
+  process(response, output)
 }
 
 #' Returns a list of upstream dataflows for the specified dataflow.Required scope: Dataflow.ReadWrite.All or Dataflow.Read.AllTo set the permissions scope, see Register an app. 
-#' @param dataflowId The dataflow id
-#' @param groupId The workspace id 
+#' @param groupId OK 
 #' @return A `data.frame` object. 
 #' @export
-get_upstream_dataflows_in_group <- function(token, dataflowId, groupId) {
+get_upstream_dataflows_in_group <- function(token, dataflowId, groupId, output = "value") {
   path <- "https://api.powerbi.com/v1.0/myorg/groups/{groupId}/dataflows/{dataflowId}/upstreamDataflows"
-  response <- httr::GET(glue::glue(path), httr::config(token = token))
-  content <- jsonlite::fromJSON(
-    httr::content(response, type = "text", encoding = "UTF-8")
-  )
-  content$value
+  response <- httr::GET(url = glue::glue(path),
+                             config = httr::config(token = token),
+                             body = FALSE)
+  process(response, output)
 }
 
 #' Triggers a refresh for the specified dataflow.Required scope: Dataflow.ReadWrite.All 
-#' @param dataflowId The dataflow id
-#' @param groupId The workspace id 
+#' @param groupId OK 
 #' @return A `data.frame` object. 
 #' @export
-refresh_dataflow <- function(token, dataflowId, groupId) {
+refresh_dataflow <- function(token, dataflowId, groupId, notifyOption, output = "value") {
   path <- "https://api.powerbi.com/v1.0/myorg/groups/{groupId}/dataflows/{dataflowId}/refreshes"
-  response <- httr::POST(glue::glue(path), httr::config(token = token))
-  content <- jsonlite::fromJSON(
-    httr::content(response, type = "text", encoding = "UTF-8")
-  )
-  content$value
+  response <- httr::POST(url = glue::glue(path),
+                             config = httr::config(token = token),
+                             body = list(notifyOption = notifyOption))
+  process(response, output)
 }
 
 #' Creates or updates the specified dataflow refresh schedule configuration.Required scope: Dataflow.ReadWrite.All 
-#' @param dataflowId The dataflow id
-#' @param groupId The workspace id 
+#' @param groupId OK 
 #' @return A `data.frame` object. 
 #' @export
-update_refresh_schedule <- function(token, dataflowId, groupId) {
+update_refresh_schedule <- function(token, dataflowId, groupId, value, output = "value") {
   path <- "https://api.powerbi.com/v1.0/myorg/groups/{groupId}/dataflows/{dataflowId}/refreshSchedule"
-  response <- httr::PATCH(glue::glue(path), httr::config(token = token))
-  content <- jsonlite::fromJSON(
-    httr::content(response, type = "text", encoding = "UTF-8")
-  )
-  content$value
+  response <- httr::PATCH(url = glue::glue(path),
+                             config = httr::config(token = token),
+                             body = list(value = value))
+  process(response, output)
 }

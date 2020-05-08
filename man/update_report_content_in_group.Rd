@@ -4,12 +4,17 @@
 \alias{update_report_content_in_group}
 \title{Updates the specified report from the specified workspace to have the same content as the specified report in the request body.Required scope: Report.ReadWrite.All}
 \usage{
-update_report_content_in_group(token, groupId, reportId)
+update_report_content_in_group(
+  token,
+  groupId,
+  reportId,
+  sourceReport,
+  sourceType,
+  output = "value"
+)
 }
 \arguments{
-\item{groupId}{The workspace id}
-
-\item{reportId}{The report id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

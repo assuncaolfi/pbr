@@ -4,14 +4,16 @@
 \alias{datasets_getdatasetsasadmin}
 \title{Returns a list of datasets for the organization.Note: The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. This API processes each request for 2 seconds, in the mean time other requests will be queued. Required scope: Tenant.Read.All or Tenant.ReadWrite.AllTo set the permissions scope, see Register an app.}
 \usage{
-datasets_getdatasetsasadmin(token)
+datasets_getdatasetsasadmin(
+  token,
+  filter = NULL,
+  skip = NULL,
+  top = NULL,
+  output = "value"
+)
 }
 \arguments{
-\item{Filters}{the results, based on a boolean condition}
-
-\item{Skips}{the first n results}
-
-\item{Returns}{only the first n results}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

@@ -4,10 +4,10 @@
 \alias{get_apps}
 \title{Returns a list of installed apps.Required scope: App.Read.AllTo set the permissions scope, see Register an app.}
 \usage{
-get_apps(token)
+get_apps(token, output = "value")
 }
 \arguments{
-\item{OK}{}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

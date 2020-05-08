@@ -4,12 +4,10 @@
 \alias{get_export_to_file_status}
 \title{Returns the status of the Export to file job from "My Workspace".Required scope: Report.ReadWrite.All or Report.Read.All}
 \usage{
-get_export_to_file_status(token, exportId, reportId)
+get_export_to_file_status(token, exportId, reportId, output = "value")
 }
 \arguments{
-\item{exportId}{The export id}
-
-\item{reportId}{The report id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

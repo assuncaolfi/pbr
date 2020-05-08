@@ -4,10 +4,17 @@
 \alias{export_to_file}
 \title{Exports the specified report from "My Workspace" to the requested format.Required scope: (all of the below)}
 \usage{
-export_to_file(token, reportId)
+export_to_file(
+  token,
+  reportId,
+  format,
+  paginatedReportConfiguration,
+  powerBIReportConfiguration,
+  output = "value"
+)
 }
 \arguments{
-\item{reportId}{The report id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

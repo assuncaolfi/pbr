@@ -4,10 +4,10 @@
 \alias{get_gateway}
 \title{Returns the specified gateway.Required scope: Dataset.ReadWrite.All or Dataset.Read.All}
 \usage{
-get_gateway(token, gatewayId)
+get_gateway(token, gatewayId, output = "value")
 }
 \arguments{
-\item{gatewayId}{The gateway id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

@@ -4,10 +4,10 @@
 \alias{add_dashboard_in_group}
 \title{Creates a new empty dashboard on the specified workspace.Required scope: Content.Create}
 \usage{
-add_dashboard_in_group(token, groupId)
+add_dashboard_in_group(token, groupId, name, output = "value")
 }
 \arguments{
-\item{groupId}{The workspace id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

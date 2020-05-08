@@ -4,14 +4,12 @@
 \alias{get_dashboard}
 \title{Returns the specified dashboard from the specified app.Required scope: Dashboard.ReadWrite.All or Dashboard.Read.All}
 \usage{
-get_dashboard(token, dashboardId)
+get_dashboard(token, dashboardId, output = "value")
 
-get_dashboard(token, dashboardId)
+get_dashboard(token, dashboardId, output = "value")
 }
 \arguments{
-\item{dashboardId}{The dashboard id}
-
-\item{appId}{The app id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

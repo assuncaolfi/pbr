@@ -9,17 +9,12 @@ add_power_bi_encryption_key(
   activate,
   isDefault,
   keyVaultKeyIdentifier,
-  name
+  name,
+  output = "value"
 )
 }
 \arguments{
-\item{activate}{Indicates to activate any inactivated capacities to use this key for its encryption}
-
-\item{isDefault}{Indicates that this key is set as default for the entire tenant. Any new capacity creation will inherit this key upon creation}
-
-\item{keyVaultKeyIdentifier}{Uri to the version of the Azure Key Vault key to be used}
-
-\item{name}{The name of the encryption key}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

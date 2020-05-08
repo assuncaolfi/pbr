@@ -5,10 +5,10 @@
 \title{Refreshes user permissions in Power BI
 When a user is granted permissions to a workspace, app, or artifact, it might not be immediately available through API calls. This operation refreshes user permissions and makes sure the user permissions are fully updated.  Required scope: Workspace.Read.All  or Workspace.ReadWrite.AllTo set the permissions scope, see Register an app.}
 \usage{
-refresh_user_permissions(token)
+refresh_user_permissions(token, output = "value")
 }
 \arguments{
-\item{OK}{}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

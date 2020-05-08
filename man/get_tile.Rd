@@ -4,16 +4,12 @@
 \alias{get_tile}
 \title{Returns the specified tile within the specified dashboard from the specified app.Note: All tile types are supported except for "model tiles", which include datasets and live tiles that contain an entire report page. Required scope: Dashboard.ReadWrite.All or Dashboard.Read.All}
 \usage{
-get_tile(token, dashboardId, tileId)
+get_tile(token, dashboardId, tileId, output = "value")
 
-get_tile(token, dashboardId, tileId)
+get_tile(token, dashboardId, tileId, output = "value")
 }
 \arguments{
-\item{dashboardId}{The dashboard id}
-
-\item{tileId}{The tile id}
-
-\item{appId}{The app id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

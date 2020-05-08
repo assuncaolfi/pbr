@@ -4,10 +4,18 @@
 \alias{create_datasource}
 \title{Creates a new datasource on the specified gateway.Required scope: Dataset.ReadWrite.All}
 \usage{
-create_datasource(token, gatewayId)
+create_datasource(
+  token,
+  gatewayId,
+  connectionDetails,
+  credentialDetails,
+  dataSourceName,
+  dataSourceType,
+  output = "value"
+)
 }
 \arguments{
-\item{gatewayId}{The gateway id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

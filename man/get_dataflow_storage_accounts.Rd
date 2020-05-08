@@ -4,10 +4,10 @@
 \alias{get_dataflow_storage_accounts}
 \title{Returns a list of dataflow storage accounts the user has access to.Required scope: StorageAccount.Read.All or StorageAccount.ReadWrite.All}
 \usage{
-get_dataflow_storage_accounts(token)
+get_dataflow_storage_accounts(token, output = "value")
 }
 \arguments{
-\item{OK}{}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

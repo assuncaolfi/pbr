@@ -4,14 +4,19 @@
 \alias{post_import}
 \title{Creates new content on "My Workspace" from .pbix, Excel, Rdl or file path in OneDrive for Business.Required scope: Dataset.ReadWrite.All}
 \usage{
-post_import(token, nameConflict, skipReport, datasetDisplayName)
+post_import(
+  token,
+  nameConflict,
+  skipReport,
+  datasetDisplayName,
+  connectionType,
+  filePath,
+  fileUrl,
+  output = "value"
+)
 }
 \arguments{
-\item{nameConflict}{Determines what to do if a dataset with the same name already exists. Default value is 'Ignore'.Only Abort and Overwrite are supported with Rdl files.}
-
-\item{skipReport}{Determines whether to skip report import, if specified value must be 'true'. Only supported for PBIX files.}
-
-\item{datasetDisplayName}{The display name of the dataset, should include file extension. Not supported when importing from OneDrive for Business.}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

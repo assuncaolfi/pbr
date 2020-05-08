@@ -4,10 +4,10 @@
 \alias{get_gateways}
 \title{Returns a list of gateways for which the user is an admin.Required scope: Dataset.ReadWrite.All or Dataset.Read.All}
 \usage{
-get_gateways(token)
+get_gateways(token, output = "value")
 }
 \arguments{
-\item{OK}{}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

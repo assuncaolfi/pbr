@@ -4,12 +4,10 @@
 \alias{refresh_dataflow}
 \title{Triggers a refresh for the specified dataflow.Required scope: Dataflow.ReadWrite.All}
 \usage{
-refresh_dataflow(token, dataflowId, groupId)
+refresh_dataflow(token, dataflowId, groupId, notifyOption, output = "value")
 }
 \arguments{
-\item{dataflowId}{The dataflow id}
-
-\item{groupId}{The workspace id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

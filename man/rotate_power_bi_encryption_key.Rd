@@ -4,10 +4,15 @@
 \alias{rotate_power_bi_encryption_key}
 \title{Rotate the encryption key for Power BI workspaces assigned to a capacity.Note: The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. This API allows 600 requests per hour at maximum. Required scope: Tenant.Read.All or Tenant.ReadWrite.AllTo set the permissions scope, see Register an app.}
 \usage{
-rotate_power_bi_encryption_key(token, tenantKeyId)
+rotate_power_bi_encryption_key(
+  token,
+  tenantKeyId,
+  keyVaultKeyIdentifier,
+  output = "value"
+)
 }
 \arguments{
-\item{tenantKeyId}{Tenant key id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

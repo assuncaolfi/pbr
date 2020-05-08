@@ -4,16 +4,12 @@
 \alias{update_refresh_schedule}
 \title{Creates or updates the specified dataflow refresh schedule configuration.Required scope: Dataflow.ReadWrite.All}
 \usage{
-update_refresh_schedule(token, datasetId)
+update_refresh_schedule(token, datasetId, value, output = "value")
 
-update_refresh_schedule(token, datasetId)
+update_refresh_schedule(token, datasetId, value, output = "value")
 }
 \arguments{
-\item{datasetId}{The dataset id}
-
-\item{dataflowId}{The dataflow id}
-
-\item{groupId}{The workspace id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

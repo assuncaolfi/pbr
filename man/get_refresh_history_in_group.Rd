@@ -4,12 +4,10 @@
 \alias{get_refresh_history_in_group}
 \title{Returns the refresh history of the specified dataset from the specified workspace.Required scope: Dataset.ReadWrite.All or Dataset.Read.All}
 \usage{
-get_refresh_history_in_group(token, datasetId, groupId)
+get_refresh_history_in_group(token, datasetId, groupId, top, output = "value")
 }
 \arguments{
-\item{datasetId}{The requested number of entries in the refresh history. If not provided, the default is all available entries.}
-
-\item{groupId}{The workspace id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

@@ -4,12 +4,15 @@
 \alias{get_direct_query_refresh_schedule_in_group}
 \title{Returns the refresh schedule of a specified DirectQuery or LiveConnection dataset from the specified workspace.Required scope: Dataset.ReadWrite.All or Dataset.Read.All}
 \usage{
-get_direct_query_refresh_schedule_in_group(token, datasetId, groupId)
+get_direct_query_refresh_schedule_in_group(
+  token,
+  datasetId,
+  groupId,
+  output = "value"
+)
 }
 \arguments{
-\item{datasetId}{The dataset id}
-
-\item{groupId}{The workspace id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

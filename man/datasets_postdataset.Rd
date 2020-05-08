@@ -4,10 +4,19 @@
 \alias{datasets_postdataset}
 \title{Creates a new dataset on "My Workspace".Note: This API supports only Push datasets.Required scope: Dataset.ReadWrite.All}
 \usage{
-datasets_postdataset(token, defaultRetentionPolicy)
+datasets_postdataset(
+  token,
+  defaultRetentionPolicy = NULL,
+  datasources,
+  defaultMode,
+  name,
+  relationships,
+  tables,
+  output = "value"
+)
 }
 \arguments{
-\item{defaultRetentionPolicy}{The default retention policy}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

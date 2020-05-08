@@ -1,8 +1,9 @@
 library(rvest)
 
-# url = "https://docs.microsoft.com/en-us/rest/api/power-bi/groups/updategroupuser"
+url = "https://docs.microsoft.com/en-us/rest/api/power-bi/admin/dashboards_getdashboardsasadmin"
 make_operation <- function(url, name) {
   message(url)
+  
   page <- read_html(url)
   endpoint <- page %>% 
     html_node("pre") %>% 
@@ -15,20 +16,41 @@ make_operation <- function(url, name) {
     html_node("p") %>% 
     html_text() %>% 
     sub(" To set the permissions scope, see Register an app.", "", .)
+  
+  h2_text <- page %>%
+    html_nodes("h2") %>%
+    html_text()
+  params <- c("URI Parameters", "Request Body") %in% h2_text
   tables <- html_table(page)
-  params <- tables[[1]]
-  param_names <- params$Name
-  # param_names <- gsub("$", "", param_names, fixed = TRUE)
-  param_names <- param_names[!grepl("$", param_names, fixed = TRUE)]
-  if (length(param_names) == 0) {
-    param_names <- NULL
-  } else if (param_names == "200 OK") {
-    param_names <- NULL
+  if (all(params)) {
+    uri_params <- fetch_params(tables[[1]])  
+    body_params <- fetch_params(tables[[2]])
+  } else if (params[1] == FALSE) {
+    uri_params <- NULL
+    body_params <- fetch_params(tables[[1]])
+  } else if (params[2] == FALSE) {
+    uri_params <- fetch_params(tables[[1]])
+    body_params <- NULL
   }
-  param_descriptions <- params$Description
-  fun <- functionalize(name, method, path, param_names)
+  
+  fun <- functionalize(name, method, path, uri_params, body_params)
   doc <- document(description, param_names, param_descriptions)
   paste(doc, fun, sep = "\n")
+}
+
+fetch_params <- function(table) {
+  names <- table$Name
+  if (length(names) == 0) {
+    return(NULL)
+  } else if (names[[1]] == "200 OK") {
+    return(NULL)
+  }
+  names <- gsub("$", "", names, fixed = TRUE)
+  descriptions <- table$Description
+  required <- table$Required
+  list(names = names,
+       descriptions = descriptions,
+       required = required)
 }
 
 document <- function(description, param_names, param_descriptions) {
@@ -41,26 +63,69 @@ document <- function(description, param_names, param_descriptions) {
   )
 }
 
-functionalize <- function(name, method, path, param_names) {
-  if (!is.null(param_names)) {
-    param_names <- paste0(
-      ", ",
-      paste(param_names, collapse = ", ")
-    ) 
-  } else {
-    param_names <- ""
+functionalize <- function(name, method, path, 
+                          uri_params, body_params) {
+  uri_names <- uri_params$names
+  body_names <- body_params$names
+  if (!is.null(body_names)) {
+    body_names <- ifelse(body_names %in% uri_names,
+                         paste("body_", body_names, sep = "_"),
+                         body_names)    
   }
+  if (is.null(uri_names)) {
+    uri_names <- ""
+  } else {
+    uri_required <- uri_params$required
+    if (is.null(uri_required)) uri_required <- rep(TRUE, length(uri_names))
+    uri_names <- ifelse(is.na(uri_required),
+                        paste(uri_names, "= NULL"),
+                        uri_names)
+    uri_names <- paste0(
+      ", ",
+      paste(uri_names, collapse = ", ")
+    ) 
+  }
+  if (is.null(body_names)) {
+    body <- FALSE
+    body_names <- ""
+  } else {
+    body <- enlist(body_names)
+    body_required <- body_params$required
+    if (is.null(body_required)) body_required <- rep(TRUE, length(body_names))
+    body_names <- ifelse(is.na(body_required),
+                        paste(body_names, "= NULL"),
+                        body_names)
+    body_names <- paste0(
+      ", ",
+      paste(body_names, collapse = ", ")
+    ) 
+  }
+  
   glue::glue(
-    "[name] <- function(token[param_names]) {
+    "[name] <- function(token[uri_names][body_names], output = \"value\") {
       path <- \"[path]\"
-      response <- httr::[method](glue::glue(path), httr::config(token = token))
-      content <- jsonlite::fromJSON(
-        httr::content(response, type = \"text\", encoding = \"UTF-8\")
-      )
-      content$value
+      response <- httr::[method](url = glue::glue(path),
+                                 config = httr::config(token = token),
+                                 body = [body])
+      process(response, output)
     }",
     .open = "[",
     .close = "]"
+  )
+}
+
+enlist <- function(body_names) {
+  paste0(
+    "list(",
+    paste(
+      paste(
+        body_names, 
+        body_names, 
+        sep = " = "
+      ),
+      collapse = ", "
+    ),
+    ")"
   )
 }
 
@@ -107,10 +172,12 @@ make_pbr <- function() {
     funs = operation_functions,
     script_name = script_names
   )
+  # styler::style_dir("R")
   roxygen2::roxygenise()
 }
 
 make_pbr()
 
-# TODO fix body params
-# TODO fix optional uri pars with $ stuff
+# TODO fix optional uri pars, remember $ stuff
+# TODO fix description, add urls
+# TODO add status verification

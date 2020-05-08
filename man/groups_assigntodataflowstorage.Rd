@@ -4,10 +4,15 @@
 \alias{groups_assigntodataflowstorage}
 \title{Assigns the specified workspace to the specified dataflow storage account.Note: To perform this operation, the user must be an admin on the specified workspace and the Power BI dataflow storage account must be enabled. To unassign the specified workspace from a Power BI dataflow storage account, an empty GUID (00000000-0000-0000-0000-000000000000) should be provided as dataflowStorageId.Required scope: StorageAccount.ReadWrite.All and Workspace.ReadWrite.All}
 \usage{
-groups_assigntodataflowstorage(token, groupId)
+groups_assigntodataflowstorage(
+  token,
+  groupId,
+  dataflowStorageId,
+  output = "value"
+)
 }
 \arguments{
-\item{groupId}{The workspace id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

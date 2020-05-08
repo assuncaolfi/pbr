@@ -5,12 +5,10 @@
 \title{Returns a list of gateways that the specified dataset from the specified workspace can be bound to.
 This API is relevant only for datasets that have at least one on-premises connection. For datasets with cloud-only connections, it will return an empty list. Required scope: Dataset.Read.All}
 \usage{
-discover_gateways_in_group(token, datasetId, groupId)
+discover_gateways_in_group(token, datasetId, groupId, output = "value")
 }
 \arguments{
-\item{datasetId}{The dataset id}
-
-\item{groupId}{The workspace id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

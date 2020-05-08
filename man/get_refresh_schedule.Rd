@@ -4,10 +4,10 @@
 \alias{get_refresh_schedule}
 \title{Returns the refresh schedule of the specified dataset from "My Workspace".Required scope: Dataset.ReadWrite.All or Dataset.Read.All}
 \usage{
-get_refresh_schedule(token, datasetId)
+get_refresh_schedule(token, datasetId, output = "value")
 }
 \arguments{
-\item{datasetId}{The dataset id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

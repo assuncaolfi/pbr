@@ -4,12 +4,10 @@
 \alias{groups_deleteuserasadmin}
 \title{Removes user permissions to the specified workspace.Note: This API is currently limited to updating workspaces in the new workspace experience. The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. This API allows 200 requests per hour at maximum. Required scope: Tenant.ReadWrite.AllTo set the permissions scope, see Register an app.}
 \usage{
-groups_deleteuserasadmin(token, groupId, user)
+groups_deleteuserasadmin(token, groupId, user, output = "value")
 }
 \arguments{
-\item{groupId}{The workspace id}
-
-\item{user}{The user principal name (UPN) of the user to remove (usually the user's email)}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

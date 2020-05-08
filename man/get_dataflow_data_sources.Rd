@@ -4,12 +4,10 @@
 \alias{get_dataflow_data_sources}
 \title{Returns a list of datasources for the specified dataflow.Required scope: Dataflow.ReadWrite.All or Dataflow.Read.All}
 \usage{
-get_dataflow_data_sources(token, dataflowId, groupId)
+get_dataflow_data_sources(token, dataflowId, groupId, output = "value")
 }
 \arguments{
-\item{dataflowId}{The dataflow id}
-
-\item{groupId}{The workspace id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

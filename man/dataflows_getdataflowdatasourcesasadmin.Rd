@@ -4,10 +4,10 @@
 \alias{dataflows_getdataflowdatasourcesasadmin}
 \title{Returns a list of datasources for the specified dataflow.Note: The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. Required scope: Tenant.Read.AllApplication only and delegated permissions are supported.To set the permissions scope, see Register an app.}
 \usage{
-dataflows_getdataflowdatasourcesasadmin(token, dataflowId)
+dataflows_getdataflowdatasourcesasadmin(token, dataflowId, output = "value")
 }
 \arguments{
-\item{dataflowId}{The dataflow id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

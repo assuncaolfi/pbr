@@ -4,12 +4,16 @@
 \alias{update_parameters_in_group}
 \title{Updates the parameters values for the specified dataset from the specified workspace.Important: The dataset must be refreshed for the new parameter values to be applied. Wait 30 minutes for the update parameters operation to complete before refreshing.Required scope: Dataset.ReadWrite.All}
 \usage{
-update_parameters_in_group(token, datasetId, groupId)
+update_parameters_in_group(
+  token,
+  datasetId,
+  groupId,
+  updateDetails,
+  output = "value"
+)
 }
 \arguments{
-\item{datasetId}{}
-
-\item{groupId}{The workspace id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

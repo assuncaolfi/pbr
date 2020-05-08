@@ -4,12 +4,16 @@
 \alias{update_datasources_in_group}
 \title{Updates the datasources of the specified dataset from the specified workspace.Important:}
 \usage{
-update_datasources_in_group(token, datasetId, groupId)
+update_datasources_in_group(
+  token,
+  datasetId,
+  groupId,
+  updateDetails,
+  output = "value"
+)
 }
 \arguments{
-\item{datasetId}{}
-
-\item{groupId}{The workspace id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

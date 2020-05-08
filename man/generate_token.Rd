@@ -4,16 +4,17 @@
 \alias{generate_token}
 \title{Generates an embed token for multiple reports, datasets and target workspaces. Reports and datasets do not have to be related. The binding of a report to a dataset can be done during embedding. Target workspaces are workspaces where creation of reports is allowed.This API is relevant only to 'App owns data' embed scenario.Required scope:}
 \usage{
-generate_token(token, datasets, identities, reports, targetWorkspaces)
+generate_token(
+  token,
+  datasets,
+  identities,
+  reports,
+  targetWorkspaces,
+  output = "value"
+)
 }
 \arguments{
-\item{datasets}{List of datasets}
-
-\item{identities}{List of identities to use for RLS rules.}
-
-\item{reports}{List of reports}
-
-\item{targetWorkspaces}{List of target workspaces}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

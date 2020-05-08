@@ -4,12 +4,10 @@
 \alias{delete_datasource}
 \title{Deletes the specified datasource from the specified gateway.Required scope: Dataset.ReadWrite.All}
 \usage{
-delete_datasource(token, datasourceId, gatewayId)
+delete_datasource(token, datasourceId, gatewayId, output = "value")
 }
 \arguments{
-\item{datasourceId}{The datasource id}
-
-\item{gatewayId}{The gateway id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

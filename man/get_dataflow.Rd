@@ -4,12 +4,10 @@
 \alias{get_dataflow}
 \title{Exports the specified dataflow definition to a .json file.Required scope: Dataflow.ReadWrite.All or Dataflow.Read.All}
 \usage{
-get_dataflow(token, dataflowId, groupId)
+get_dataflow(token, dataflowId, groupId, output = "value")
 }
 \arguments{
-\item{dataflowId}{The dataflow id}
-
-\item{groupId}{The workspace id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

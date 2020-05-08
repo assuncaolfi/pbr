@@ -4,12 +4,20 @@
 \alias{add_datasource_user}
 \title{Grants or updates the permissions required to use the specified datasource for the specified user.Required scope: Dataset.ReadWrite.All}
 \usage{
-add_datasource_user(token, datasourceId, gatewayId)
+add_datasource_user(
+  token,
+  datasourceId,
+  gatewayId,
+  datasourceAccessRight,
+  displayName,
+  emailAddress,
+  identifier,
+  principalType,
+  output = "value"
+)
 }
 \arguments{
-\item{datasourceId}{The datasource id}
-
-\item{gatewayId}{The gateway id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

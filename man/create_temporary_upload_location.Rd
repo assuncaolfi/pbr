@@ -5,10 +5,10 @@
 \title{Creates a temporary blob storage to be used to import large .pbix files larger than 1 GB and up to 10 GB.
 To import large .pbix files, create a temporary upload location and upload the .pbix file using the shared access signature (SAS) url from the response, and then call Post Import and specify 'fileUrl' to be the SAS url in the Request BodyNote: Import large .pbix files is only available for workspaces on premium capacity and for .pbix files that are between 1 GB and 10 GB. Required scope: Dataset.ReadWrite.All}
 \usage{
-create_temporary_upload_location(token)
+create_temporary_upload_location(token, output = "value")
 }
 \arguments{
-\item{OK}{}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

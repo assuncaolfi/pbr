@@ -4,12 +4,10 @@
 \alias{get_page}
 \title{Returns the specified page within the specified report from "My Workspace".Required scope: Report.ReadWrite.All or Report.Read.All}
 \usage{
-get_page(token, pageName, reportId)
+get_page(token, pageName, reportId, output = "value")
 }
 \arguments{
-\item{pageName}{The page name}
-
-\item{reportId}{The report id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

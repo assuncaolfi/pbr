@@ -4,18 +4,14 @@
 \alias{get_datasources}
 \title{Returns a list of datasources for the specified dataset from "My Workspace".Required scope: Dataset.ReadWrite.All or Dataset.Read.All}
 \usage{
-get_datasources(token, reportId)
+get_datasources(token, reportId, output = "value")
 
-get_datasources(token, reportId)
+get_datasources(token, reportId, output = "value")
 
-get_datasources(token, reportId)
+get_datasources(token, reportId, output = "value")
 }
 \arguments{
-\item{reportId}{The report id}
-
-\item{datasetId}{The dataset id}
-
-\item{gatewayId}{The gateway id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

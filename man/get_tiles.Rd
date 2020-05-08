@@ -4,14 +4,12 @@
 \alias{get_tiles}
 \title{Returns a list of tiles within the specified dashboard from the specified app.Required scope: Dashboard.ReadWrite.All or Dashboard.Read.All}
 \usage{
-get_tiles(token, dashboardId)
+get_tiles(token, dashboardId, output = "value")
 
-get_tiles(token, dashboardId)
+get_tiles(token, dashboardId, output = "value")
 }
 \arguments{
-\item{dashboardId}{The dashboard id}
-
-\item{appId}{The app id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

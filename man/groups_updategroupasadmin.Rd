@@ -4,10 +4,29 @@
 \alias{groups_updategroupasadmin}
 \title{Updates the specified workspace properties.Note: This API is currently limited to updating workspaces in the new workspace experience. Only name and description can be updated, and name must be unique inside an organization. The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. This API allows 200 requests per hour at maximum. Required scope: Tenant.ReadWrite.AllTo set the permissions scope, see Register an app.}
 \usage{
-groups_updategroupasadmin(token, groupId)
+groups_updategroupasadmin(
+  token,
+  groupId,
+  capacityId,
+  dashboards,
+  dataflowStorageId,
+  dataflows,
+  datasets,
+  description,
+  id,
+  isOnDedicatedCapacity,
+  isReadOnly,
+  name,
+  reports,
+  state,
+  type,
+  users,
+  workbooks,
+  output = "value"
+)
 }
 \arguments{
-\item{groupId}{The workspace id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

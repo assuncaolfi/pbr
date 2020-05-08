@@ -4,12 +4,20 @@
 \alias{clone_tile}
 \title{Clones the specified tile from "My Workspace".If target report id and target dataset are not specified, the following can occur:}
 \usage{
-clone_tile(token, dashboardId, tileId)
+clone_tile(
+  token,
+  dashboardId,
+  tileId,
+  positionConflictAction,
+  targetDashboardId,
+  targetModelId,
+  targetReportId,
+  targetWorkspaceId,
+  output = "value"
+)
 }
 \arguments{
-\item{dashboardId}{The dashboard id}
-
-\item{tileId}{The tile id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

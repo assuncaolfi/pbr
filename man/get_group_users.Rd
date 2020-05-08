@@ -4,10 +4,10 @@
 \alias{get_group_users}
 \title{Returns a list of users that have access to the specified workspace.Required scope: Workspace.Read.All or Workspace.ReadWrite.AllTo set the permissions scope, see Register an app.}
 \usage{
-get_group_users(token, groupId)
+get_group_users(token, groupId, output = "value")
 }
 \arguments{
-\item{groupId}{The workspace id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

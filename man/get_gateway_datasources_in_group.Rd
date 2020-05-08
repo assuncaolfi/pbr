@@ -4,12 +4,10 @@
 \alias{get_gateway_datasources_in_group}
 \title{Returns a list of gateway datasources for the specified dataset from the specified workspace.Note: Use the Dataset - Get Datasources In Group API instead.Required scope: Dataset.ReadWrite.All or Dataset.Read.All}
 \usage{
-get_gateway_datasources_in_group(token, datasetId, groupId)
+get_gateway_datasources_in_group(token, datasetId, groupId, output = "value")
 }
 \arguments{
-\item{datasetId}{The dataset id}
-
-\item{groupId}{The workspace id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

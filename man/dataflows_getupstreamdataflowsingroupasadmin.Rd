@@ -4,12 +4,15 @@
 \alias{dataflows_getupstreamdataflowsingroupasadmin}
 \title{Returns a list of upstream dataflows for the specified dataflow.Note: The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. Required scope: Tenant.Read.All or Tenant.ReadWrite.AllTo set the permissions scope, see Register an app.}
 \usage{
-dataflows_getupstreamdataflowsingroupasadmin(token, dataflowId, groupId)
+dataflows_getupstreamdataflowsingroupasadmin(
+  token,
+  dataflowId,
+  groupId,
+  output = "value"
+)
 }
 \arguments{
-\item{dataflowId}{The dataflow id}
-
-\item{groupId}{The workspace id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

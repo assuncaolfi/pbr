@@ -4,14 +4,20 @@
 \alias{datasets_puttableingroup}
 \title{Updates the metadata and schema for the specified table, within the specified dataset, from the specified workspace.Note: This API supports only Push datasets. Required scope: Dataset.ReadWrite.All}
 \usage{
-datasets_puttableingroup(token, datasetId, groupId, tableName)
+datasets_puttableingroup(
+  token,
+  datasetId,
+  groupId,
+  tableName,
+  columns,
+  measures,
+  name,
+  rows,
+  output = "value"
+)
 }
 \arguments{
-\item{datasetId}{The dataset id}
-
-\item{groupId}{The workspace id}
-
-\item{tableName}{The table name}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

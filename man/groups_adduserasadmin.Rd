@@ -4,10 +4,19 @@
 \alias{groups_adduserasadmin}
 \title{Grants user permissions to the specified workspace.Note: This API is currently limited to updating workspaces in the new workspace experience. The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. This API allows 200 requests per hour at maximum. Required scope: Tenant.ReadWrite.AllTo set the permissions scope, see Register an app.}
 \usage{
-groups_adduserasadmin(token, groupId)
+groups_adduserasadmin(
+  token,
+  groupId,
+  displayName,
+  emailAddress,
+  groupUserAccessRight,
+  identifier,
+  principalType,
+  output = "value"
+)
 }
 \arguments{
-\item{groupId}{The workspace id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

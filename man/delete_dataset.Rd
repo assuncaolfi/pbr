@@ -4,10 +4,10 @@
 \alias{delete_dataset}
 \title{Deletes the specified dataset from "My Workspace".Required scope: Dataset.ReadWrite.All}
 \usage{
-delete_dataset(token, datasetId)
+delete_dataset(token, datasetId, output = "value")
 }
 \arguments{
-\item{datasetId}{The dataset id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

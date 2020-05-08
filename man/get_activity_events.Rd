@@ -4,14 +4,17 @@
 \alias{get_activity_events}
 \title{Returns a list of audit activity events for a tenant.Note: The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. This API allows 200 requests per hour at maximum. Required scope: Tenant.Read.All or Tenant.ReadWrite.All. To call this API, provide either a continuation token or both a start and end date time. StartDateTime and EndDateTime must be in the same UTC day.}
 \usage{
-get_activity_events(token, continuationToken, endDateTime, startDateTime)
+get_activity_events(
+  token,
+  filter = NULL,
+  continuationToken = NULL,
+  endDateTime = NULL,
+  startDateTime = NULL,
+  output = "value"
+)
 }
 \arguments{
-\item{continuationToken}{Start date and time of the window for audit event results. Must be in ISO 8601 compliant UTC format.}
-
-\item{endDateTime}{Token required to get the next chunk of the result set}
-
-\item{startDateTime}{End date and time of the window for audit event results. Must be in ISO 8601 compliant UTC format.}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

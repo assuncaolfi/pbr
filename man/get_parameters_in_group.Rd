@@ -4,12 +4,10 @@
 \alias{get_parameters_in_group}
 \title{Returns a list of parameters for the specified dataset from the specified workspace.Required scope: Dataset.ReadWrite.All}
 \usage{
-get_parameters_in_group(token, datasetId, groupId)
+get_parameters_in_group(token, datasetId, groupId, output = "value")
 }
 \arguments{
-\item{datasetId}{}
-
-\item{groupId}{The workspace id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

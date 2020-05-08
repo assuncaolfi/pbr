@@ -4,12 +4,19 @@
 \alias{datasets_puttable}
 \title{Updates the metadata and schema for the specified table within the specified dataset from "My Workspace".Note: This API supports only Push datasets. Required scope: Dataset.ReadWrite.All}
 \usage{
-datasets_puttable(token, datasetId, tableName)
+datasets_puttable(
+  token,
+  datasetId,
+  tableName,
+  columns,
+  measures,
+  name,
+  rows,
+  output = "value"
+)
 }
 \arguments{
-\item{datasetId}{The dataset id}
-
-\item{tableName}{The table name}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

@@ -4,10 +4,10 @@
 \alias{groups_capacityassignmentstatusmyworkspace}
 \title{Gets the status of "My Workspace" assignment to capacity operation.Note: Required scope: Workspace.Read.All and Workspace.ReadWrite.All}
 \usage{
-groups_capacityassignmentstatusmyworkspace(token)
+groups_capacityassignmentstatusmyworkspace(token, output = "value")
 }
 \arguments{
-\item{OK}{}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

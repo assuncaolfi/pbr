@@ -4,10 +4,14 @@
 \alias{capacities_unassignworkspacesfromcapacity}
 \title{Unassigns the provided workspaces from capacity.Note: The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. Required scope: Tenant.Read.All or Tenant.ReadWrite.AllTo set the permissions scope, see Register an app.}
 \usage{
-capacities_unassignworkspacesfromcapacity(token, workspacesToUnassign)
+capacities_unassignworkspacesfromcapacity(
+  token,
+  workspacesToUnassign,
+  output = "value"
+)
 }
 \arguments{
-\item{workspacesToUnassign}{Workspaces to be migrated to shared capacity}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

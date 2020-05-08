@@ -4,12 +4,17 @@
 \alias{patch_workload}
 \title{Changes the state of a specific workload to Enabled or Disabled. When enabling a workload the maximum memory percentage that the workload can consume must be set.Required scope: Capacity.ReadWrite.All}
 \usage{
-patch_workload(token, capacityId, workloadName)
+patch_workload(
+  token,
+  capacityId,
+  workloadName,
+  maxMemoryPercentageSetByUser,
+  state,
+  output = "value"
+)
 }
 \arguments{
-\item{capacityId}{The capacity Id}
-
-\item{workloadName}{The name of the workload}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

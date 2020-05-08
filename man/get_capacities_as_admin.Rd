@@ -4,10 +4,10 @@
 \alias{get_capacities_as_admin}
 \title{Returns a list of capacities for the organization.Note: The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. Required scope: Tenant.Read.All or Tenant.ReadWrite.AllTo set the permissions scope, see Register an app.}
 \usage{
-get_capacities_as_admin(token)
+get_capacities_as_admin(token, expand = NULL, output = "value")
 }
 \arguments{
-\item{Expands}{related entities inline}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

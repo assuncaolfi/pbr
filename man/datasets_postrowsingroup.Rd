@@ -4,14 +4,17 @@
 \alias{datasets_postrowsingroup}
 \title{Adds new data rows to the specified table, within the specified dataset, from the specified workspace.Note: This API supports only Push datasets. REST API Limitations: See Power BI REST API limitations. Required scope: Dataset.ReadWrite.All}
 \usage{
-datasets_postrowsingroup(token, datasetId, groupId, tableName)
+datasets_postrowsingroup(
+  token,
+  datasetId,
+  groupId,
+  tableName,
+  rows,
+  output = "value"
+)
 }
 \arguments{
-\item{datasetId}{The dataset id}
-
-\item{groupId}{The workspace id}
-
-\item{tableName}{The table name}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

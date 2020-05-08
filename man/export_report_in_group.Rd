@@ -4,12 +4,10 @@
 \alias{export_report_in_group}
 \title{Exports the specified report from the specified workspace to a .pbix file.Required scope: Report.ReadWrite.All or Report.Read.All}
 \usage{
-export_report_in_group(token, groupId, reportId)
+export_report_in_group(token, groupId, reportId, output = "value")
 }
 \arguments{
-\item{groupId}{The workspace id}
-
-\item{reportId}{The report id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

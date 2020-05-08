@@ -4,10 +4,10 @@
 \alias{datasets_gettables}
 \title{Returns a list of tables tables within the specified dataset from "My Workspace".Note: This API supports only Push datasets. Required scope: Dataset.ReadWrite.All or Dataset.Read.All}
 \usage{
-datasets_gettables(token, datasetId)
+datasets_gettables(token, datasetId, output = "value")
 }
 \arguments{
-\item{datasetId}{The dataset id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

@@ -4,10 +4,10 @@
 \alias{delete_group}
 \title{Deletes the specified workspace.Required scope: Workspace.ReadWrite.AllTo set the permissions scope, see Register an app.}
 \usage{
-delete_group(token, groupId)
+delete_group(token, groupId, output = "value")
 }
 \arguments{
-\item{groupId}{The workspace id to delete}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

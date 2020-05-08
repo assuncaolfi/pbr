@@ -4,12 +4,10 @@
 \alias{get_dashboard_in_group}
 \title{Returns the specified dashboard from the specified workspace.Required scope: Dashboard.ReadWrite.All or Dashboard.Read.All}
 \usage{
-get_dashboard_in_group(token, dashboardId, groupId)
+get_dashboard_in_group(token, dashboardId, groupId, output = "value")
 }
 \arguments{
-\item{dashboardId}{The dashboard id}
-
-\item{groupId}{The workspace id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

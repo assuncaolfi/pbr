@@ -4,10 +4,10 @@
 \alias{delete_report}
 \title{Deletes the specified report from "My Workspace".Required scope: Report.ReadWrite.All}
 \usage{
-delete_report(token, reportId)
+delete_report(token, reportId, output = "value")
 }
 \arguments{
-\item{reportId}{The report id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

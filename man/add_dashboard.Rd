@@ -4,10 +4,10 @@
 \alias{add_dashboard}
 \title{Creates a new empty dashboard on "My Workspace".Required scope: Content.Create}
 \usage{
-add_dashboard(token, name)
+add_dashboard(token, name, output = "value")
 }
 \arguments{
-\item{name}{The name of the new dashboard}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

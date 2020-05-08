@@ -4,10 +4,10 @@
 \alias{get_imports_in_group}
 \title{Returns a list of imports from the specified workspace.Required scope: Dataset.ReadWrite.All or Dataset.Read.All}
 \usage{
-get_imports_in_group(token, groupId)
+get_imports_in_group(token, groupId, output = "value")
 }
 \arguments{
-\item{groupId}{The workspace id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

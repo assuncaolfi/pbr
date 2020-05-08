@@ -4,12 +4,16 @@
 \alias{set_all_dataset_connections_in_group}
 \title{Note: This API is deprecated and no longer supported.Updates all connections for the specified dataset from the specified workspace.Notes:}
 \usage{
-set_all_dataset_connections_in_group(token, datasetId, groupId)
+set_all_dataset_connections_in_group(
+  token,
+  datasetId,
+  groupId,
+  connectionString,
+  output = "value"
+)
 }
 \arguments{
-\item{datasetId}{The dataset id}
-
-\item{groupId}{The workspace id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

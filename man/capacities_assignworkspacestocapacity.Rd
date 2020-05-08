@@ -4,10 +4,14 @@
 \alias{capacities_assignworkspacestocapacity}
 \title{Assigns the provided workspaces to the specified capacity.Note: The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. Required scope: Tenant.Read.All or Tenant.ReadWrite.AllTo set the permissions scope, see Register an app.}
 \usage{
-capacities_assignworkspacestocapacity(token, capacityMigrationAssignments)
+capacities_assignworkspacestocapacity(
+  token,
+  capacityMigrationAssignments,
+  output = "value"
+)
 }
 \arguments{
-\item{capacityMigrationAssignments}{Assignment contract for migrating workspaces to shared capacity as tenant admin}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

@@ -4,10 +4,18 @@
 \alias{datasets_getdatasetsingroupasadmin}
 \title{Returns a list of datasets from the specified workspace.Note: The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. This API allows 200 requests per hour at maximum. Required scope: Tenant.Read.All or Tenant.ReadWrite.AllTo set the permissions scope, see Register an app.}
 \usage{
-datasets_getdatasetsingroupasadmin(token, groupId)
+datasets_getdatasetsingroupasadmin(
+  token,
+  groupId,
+  expand,
+  filter,
+  skip,
+  top,
+  output = "value"
+)
 }
 \arguments{
-\item{groupId}{Returns only the first n results}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

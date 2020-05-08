@@ -4,10 +4,10 @@
 \alias{get_power_bi_encryption_keys}
 \title{Returns the encryption keys for the tenant.Note: The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. Required scope: Tenant.Read.All or Tenant.ReadWrite.AllTo set the permissions scope, see Register an app.}
 \usage{
-get_power_bi_encryption_keys(token)
+get_power_bi_encryption_keys(token, output = "value")
 }
 \arguments{
-\item{OK}{}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

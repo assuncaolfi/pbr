@@ -9,17 +9,15 @@ post_import_in_group(
   groupId,
   nameConflict,
   skipReport,
-  datasetDisplayName
+  datasetDisplayName,
+  connectionType,
+  filePath,
+  fileUrl,
+  output = "value"
 )
 }
 \arguments{
-\item{groupId}{The workspace id}
-
-\item{nameConflict}{Determines what to do if a dataset with the same name already exists. Default value is 'Ignore'.Only Abort and Overwrite are supported with Rdl files.Only Abort and GenerateUniqueName are supported with dataflow model.json files.}
-
-\item{skipReport}{Determines whether to skip report import, if specified value must be 'true'. Only supported for PBIX files.}
-
-\item{datasetDisplayName}{The display name of the dataset should include file extension. Not supported when importing from OneDrive for Business. For importing or creating dataflows, this parameter should be hardcoded to model.json.}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

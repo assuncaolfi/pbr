@@ -4,12 +4,16 @@
 \alias{update_refresh_schedule_in_group}
 \title{Updates the refresh schedule for the specified dataset from the specified workspace.This operation is only supported for the dataset owner.A request that disables the refresh schedule should contain no other changes.The days array should not be set to empty array.The times may be set to empty array (in which case Power BI will use a default single time per day).The limit on number of time slots per day depends on the type of capacity used (Premium or Shared), see What is Microsoft Power BI Premium.Required scope: Dataset.ReadWrite.All}
 \usage{
-update_refresh_schedule_in_group(token, datasetId, groupId)
+update_refresh_schedule_in_group(
+  token,
+  datasetId,
+  groupId,
+  value,
+  output = "value"
+)
 }
 \arguments{
-\item{datasetId}{The dataset id}
-
-\item{groupId}{The workspace id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

@@ -4,10 +4,10 @@
 \alias{get_dataflows}
 \title{Returns a list of all dataflows from the specified workspace.Required scope: Dataflow.ReadWrite.All or Dataflow.Read.All}
 \usage{
-get_dataflows(token, groupId)
+get_dataflows(token, groupId, output = "value")
 }
 \arguments{
-\item{groupId}{The workspace id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

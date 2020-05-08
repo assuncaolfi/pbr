@@ -4,12 +4,16 @@
 \alias{update_direct_query_refresh_schedule_in_group}
 \title{Updates the refresh schedule for the specified DirectQuery or LiveConnection dataset from the specified workspace.This operation is only supported for the dataset owner.A request should contain either a combination of days and times  (setting times is optional, otherwise a default single time per day is used) or a valid frequency, but not both.Setting frequency will automatically truncate the days and times arrays.Required scope: Dataset.ReadWrite.All}
 \usage{
-update_direct_query_refresh_schedule_in_group(token, datasetId, groupId)
+update_direct_query_refresh_schedule_in_group(
+  token,
+  datasetId,
+  groupId,
+  value,
+  output = "value"
+)
 }
 \arguments{
-\item{datasetId}{The dataset id}
-
-\item{groupId}{The workspace id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

@@ -4,10 +4,10 @@
 \alias{dashboards_gettilesasadmin}
 \title{Returns a list of tiles within the specified dashboard.Note: The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. This API allows 200 requests per hour at maximum. Required scope: Tenant.Read.All or Tenant.ReadWrite.AllTo set the permissions scope, see Register an app.}
 \usage{
-dashboards_gettilesasadmin(token, dashboardId)
+dashboards_gettilesasadmin(token, dashboardId, output = "value")
 }
 \arguments{
-\item{dashboardId}{The dashboard id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

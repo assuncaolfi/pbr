@@ -4,12 +4,10 @@
 \alias{get_file_of_export_to_file}
 \title{Returns the file of the Export to file job of the specified report from "My Workspace".Required scope: Report.ReadWrite.All or Report.Read.All}
 \usage{
-get_file_of_export_to_file(token, exportId, reportId)
+get_file_of_export_to_file(token, exportId, reportId, output = "value")
 }
 \arguments{
-\item{exportId}{The export id}
-
-\item{reportId}{The report id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

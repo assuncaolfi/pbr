@@ -4,14 +4,12 @@
 \alias{get_reports}
 \title{Returns a list of reports from the specified app.Required scope: Report.ReadWrite.All or Report.Read.All}
 \usage{
-get_reports(token)
+get_reports(token, output = "value")
 
-get_reports(token)
+get_reports(token, output = "value")
 }
 \arguments{
-\item{appId}{The app id}
-
-\item{OK}{}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

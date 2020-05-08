@@ -4,10 +4,10 @@
 \alias{get_dataset}
 \title{Returns the specified dataset from "My Workspace".Required scope: Dataset.ReadWrite.All or Dataset.Read.All}
 \usage{
-get_dataset(token, datasetId)
+get_dataset(token, datasetId, output = "value")
 }
 \arguments{
-\item{datasetId}{The dataset id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

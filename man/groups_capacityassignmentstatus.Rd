@@ -4,10 +4,10 @@
 \alias{groups_capacityassignmentstatus}
 \title{Gets the status of the assignment to capacity operation of the specified workspace.Note: To perform this operation, the user must be admin on the specified workspace. Required scope: Workspace.Read.All and Workspace.ReadWrite.All}
 \usage{
-groups_capacityassignmentstatus(token, groupId)
+groups_capacityassignmentstatus(token, groupId, output = "value")
 }
 \arguments{
-\item{groupId}{The workspace id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

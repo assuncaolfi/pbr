@@ -4,12 +4,19 @@
 \alias{datasets_generatetokeningroup}
 \title{Generates an embed token to Embed Q&A based on the specified dataset from the specified workspace.This API is relevant only to 'App owns data' embed scenario.Required scope: Dataset.ReadWrite.All or Dataset.Read.AllWhen using service principal for authentication, refer to Service Principal with Power BI document along with considerations and limitations section.}
 \usage{
-datasets_generatetokeningroup(token, datasetId, groupId)
+datasets_generatetokeningroup(
+  token,
+  datasetId,
+  groupId,
+  accessLevel,
+  allowSaveAs,
+  body__datasetId,
+  identities,
+  output = "value"
+)
 }
 \arguments{
-\item{datasetId}{The dataset id}
-
-\item{groupId}{The workspace id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

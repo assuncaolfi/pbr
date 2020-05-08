@@ -4,10 +4,10 @@
 \alias{get_available_feature_by_name}
 \title{Returns the specified available feature for user by name.Required scope: None}
 \usage{
-get_available_feature_by_name(token, featureName)
+get_available_feature_by_name(token, featureName, output = "value")
 }
 \arguments{
-\item{featureName}{The feature name}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

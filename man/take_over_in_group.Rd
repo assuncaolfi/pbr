@@ -4,12 +4,10 @@
 \alias{take_over_in_group}
 \title{Transfers ownership over the specified dataset to the current authorized user.Required scope: Dataset.ReadWrite.All}
 \usage{
-take_over_in_group(token, datasetId, groupId)
+take_over_in_group(token, datasetId, groupId, output = "value")
 }
 \arguments{
-\item{datasetId}{The dataset id}
-
-\item{groupId}{The workspace id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

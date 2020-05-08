@@ -4,10 +4,10 @@
 \alias{refresh_dataset}
 \title{Triggers a refresh for the specified dataset from "My Workspace".In Shared capacities this call is limited to eight times per day (including refreshes executed via Scheduled Refresh)In Premium capacities this call is not limited in number of times per day, but only by the available resources in the capacity, hence if overloaded, the refresh execution may be throttled until the load is reduced. If this throttling exceeds 1 hour, the refresh will fail.Required scope: Dataset.ReadWrite.AllTo set the permissions scope, see Register an app.}
 \usage{
-refresh_dataset(token, datasetId)
+refresh_dataset(token, datasetId, notifyOption, output = "value")
 }
 \arguments{
-\item{datasetId}{The dataset id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

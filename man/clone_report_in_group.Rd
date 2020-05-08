@@ -4,12 +4,18 @@
 \alias{clone_report_in_group}
 \title{Clones the specified report from the specified workspace.If after cloning the report and its dataset reside in two different upgraded workspaces or "My Workspace", a shared dataset will be created in the report's workspace. Reports with live connection will lose the live connection when cloning, and will have a direct binding to the target dataset.Required scope: Content.Create Required permissions: Report - Write permissions. Target dataset (if provided) - Build permissions}
 \usage{
-clone_report_in_group(token, groupId, reportId)
+clone_report_in_group(
+  token,
+  groupId,
+  reportId,
+  name,
+  targetModelId,
+  targetWorkspaceId,
+  output = "value"
+)
 }
 \arguments{
-\item{groupId}{The workspace id}
-
-\item{reportId}{The report id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

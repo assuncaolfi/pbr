@@ -4,16 +4,12 @@
 \alias{get_datasources_in_group}
 \title{Returns a list of datasources for the specified dataset from the specified workspace.Required scope: Dataset.ReadWrite.All or Dataset.Read.All}
 \usage{
-get_datasources_in_group(token, groupId, reportId)
+get_datasources_in_group(token, groupId, reportId, output = "value")
 
-get_datasources_in_group(token, groupId, reportId)
+get_datasources_in_group(token, groupId, reportId, output = "value")
 }
 \arguments{
-\item{groupId}{The workspace id}
-
-\item{reportId}{}
-
-\item{datasetId}{}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

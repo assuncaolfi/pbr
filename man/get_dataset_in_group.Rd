@@ -4,12 +4,10 @@
 \alias{get_dataset_in_group}
 \title{Returns the specified dataset from the specified workspace.Required scope: Dataset.ReadWrite.All or Dataset.Read.All}
 \usage{
-get_dataset_in_group(token, datasetId, groupId)
+get_dataset_in_group(token, datasetId, groupId, output = "value")
 }
 \arguments{
-\item{datasetId}{The dataset id}
-
-\item{groupId}{The workspace id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

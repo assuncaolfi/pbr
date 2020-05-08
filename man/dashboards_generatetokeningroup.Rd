@@ -4,12 +4,19 @@
 \alias{dashboards_generatetokeningroup}
 \title{Generates an embed token to view the specified dashboard from the specified workspace.This API is relevant only to 'App owns data' embed scenario.Required scope: (all of the below)}
 \usage{
-dashboards_generatetokeningroup(token, dashboardId, groupId)
+dashboards_generatetokeningroup(
+  token,
+  dashboardId,
+  groupId,
+  accessLevel,
+  allowSaveAs,
+  datasetId,
+  identities,
+  output = "value"
+)
 }
 \arguments{
-\item{dashboardId}{The dashboard id}
-
-\item{groupId}{The workspace id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.

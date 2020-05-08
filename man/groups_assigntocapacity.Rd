@@ -4,10 +4,10 @@
 \alias{groups_assigntocapacity}
 \title{Assigns the specified workspace to the specified capacity.Note: To perform this operation, the user must be admin on the specified workspace and have admin or assign permissions on the capacity. To unassign the specified workspace from a capacity, Empty Guid (00000000-0000-0000-0000-000000000000) should be provided as capacityId.  Required scope: Capacity.ReadWrite.All and Workspace.ReadWrite.All}
 \usage{
-groups_assigntocapacity(token, groupId)
+groups_assigntocapacity(token, groupId, capacityId, output = "value")
 }
 \arguments{
-\item{groupId}{The workspace id}
+\item{groupId}{OK}
 }
 \value{
 A `data.frame` object.
