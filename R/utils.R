@@ -5,5 +5,5 @@ process <- function(response, output = "value") {
   content <- jsonlite::fromJSON(
     httr::content(response, type = "text", encoding = "UTF-8")
   )
-  content$value
+  content[[output]]
 }
